@@ -73,3 +73,10 @@ export const springTransition = {
 
 // Viewport config (trigger once when 10% visible)
 export const viewport = { once: true, amount: 0.1 };
+
+export const slideBlur = {
+  initial: { x: 30, opacity: 0, filter: "blur(8px)" },
+  animate: { x: 0, opacity: 1, filter: "blur(0px)" },
+  exit: { x: -30, opacity: 0, filter: "blur(8px)" },
+  transition: { duration: 0.45, ease: [0.65, 0, 0.35, 1] }
+};

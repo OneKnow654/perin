@@ -3,29 +3,59 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { menu, app } from "../data/config";
 import {
-  Users, Globe, Box, Heart, Film, UserPlus,
-  ChevronDown, ArrowRight, X, Menu,
+  Users,
+  Globe,
+  Box,
+  Heart,
+  Film,
+  UserPlus,
+  ChevronDown,
+  ArrowRight,
+  X,
+  Menu,
 } from "lucide-react";
 
-const iconMap = { users: Users, globe: Globe, box: Box, heart: Heart, film: Film, "user-plus": UserPlus };
+const iconMap = {
+  users: Users,
+  globe: Globe,
+  box: Box,
+  heart: Heart,
+  film: Film,
+  "user-plus": UserPlus,
+};
 
 const megaVariants = {
   hidden: { opacity: 0, y: -10 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] } },
-  exit:   { opacity: 0, y: -8,  transition: { duration: 0.18, ease: "easeIn" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+  exit: { opacity: 0, y: -8, transition: { duration: 0.18, ease: "easeIn" } },
 };
 
 const drawerVariants = {
   hidden: { x: "100%" },
-  visible: { x: 0, transition: { type: "spring", stiffness: 320, damping: 32 } },
-  exit:   { x: "100%", transition: { duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: {
+    x: 0,
+    transition: { type: "spring", stiffness: 320, damping: 32 },
+  },
+  exit: {
+    x: "100%",
+    transition: { duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, x: 18 },
   visible: (i) => ({
-    opacity: 1, x: 0,
-    transition: { delay: i * 0.055, duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] },
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: i * 0.055,
+      duration: 0.35,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
   }),
 };
 
@@ -54,7 +84,11 @@ export default function Navbar() {
     <>
       <motion.header
         className="sticky top-0 z-50 bg-white"
-        animate={{ boxShadow: scrolled ? "0 1px 20px rgba(2,50,116,0.10)" : "0 1px 0 rgba(0,0,0,0.06)" }}
+        animate={{
+          boxShadow: scrolled
+            ? "0 1px 20px rgba(2,50,116,0.10)"
+            : "0 1px 0 rgba(0,0,0,0.06)",
+        }}
         transition={{ duration: 0.3 }}
       >
         <nav className="max-w-[1400px] mx-auto px-4 lg:px-8">
@@ -72,7 +106,9 @@ export default function Navbar() {
                   e.target.nextSibling.style.display = "block";
                 }}
               />
-              <span className="hidden font-bold text-primary text-lg">Perin Healthcare</span>
+              <span className="hidden font-bold text-primary text-lg">
+                Perin Healthcare
+              </span>
             </Link>
 
             {/* Desktop Menu */}
@@ -108,7 +144,11 @@ export default function Navbar() {
 
             {/* CTA */}
             <div className="hidden lg:block">
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              >
                 <Link
                   to="/contact"
                   className="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors"
@@ -145,40 +185,48 @@ export default function Navbar() {
                     onMouseLeave={closeMenu}
                   >
                     <div className="max-w-[1400px] mx-auto px-8 py-8">
-                      <div
-                        className="grid gap-12 max-w-3xl"
-                        style={{ gridTemplateColumns: `repeat(${item.columns.length}, minmax(0,1fr))` }}
-                      >
-                        {item.columns.map((col, ci) => (
-                          <div key={ci}>
-                            <h4 className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-4">
-                              {col.heading}
-                            </h4>
-                            <ul className="space-y-3">
-                              {col.items.map((sub, si) => (
-                                <motion.li
-                                  key={si}
-                                  initial={{ opacity: 0, x: -8 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: (ci * col.items.length + si) * 0.04, duration: 0.25 }}
-                                >
-                                  <Link
-                                    to={sub.link}
-                                    className="text-white hover:text-[#58b66a] transition-colors text-[15px] font-medium"
+                      <div className="w-full flex justify-center">
+                        <div
+                          className="grid gap-x-12 gap-y-8 px-6 max-w-5xl"
+                          style={{
+                            gridTemplateColumns: `repeat(${item.columns.length}, minmax(180px, 1fr))`,
+                          }}
+                        >
+                          {item.columns.map((col, ci) => (
+                            <div key={ci}>
+                              <h4 className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-4">
+                                {col.heading}
+                              </h4>
+                              <ul className="space-y-3">
+                                {col.items.map((sub, si) => (
+                                  <motion.li
+                                    key={si}
+                                    initial={{ opacity: 0, x: -8 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                      delay:
+                                        (ci * col.items.length + si) * 0.04,
+                                      duration: 0.25,
+                                    }}
                                   >
-                                    {sub.name}
-                                  </Link>
-                                </motion.li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
+                                    <Link
+                                      to={sub.link}
+                                      className="text-white hover:text-[#58b66a] transition-colors text-[15px] font-medium"
+                                    >
+                                      {sub.name}
+                                    </Link>
+                                  </motion.li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-            ) : null
+            ) : null,
           )}
         </div>
       </motion.header>
@@ -237,7 +285,9 @@ export default function Navbar() {
                           <>
                             <button
                               className="w-full flex items-center justify-between py-4 text-white font-medium text-lg"
-                              onClick={() => setMobileExpanded(isOpen ? null : i)}
+                              onClick={() =>
+                                setMobileExpanded(isOpen ? null : i)
+                              }
                             >
                               <span className="flex items-center gap-3">
                                 {Icon && <Icon size={18} />}
@@ -257,7 +307,10 @@ export default function Navbar() {
                                   initial={{ height: 0, opacity: 0 }}
                                   animate={{ height: "auto", opacity: 1 }}
                                   exit={{ height: 0, opacity: 0 }}
-                                  transition={{ duration: 0.32, ease: [0.25, 0.46, 0.45, 0.94] }}
+                                  transition={{
+                                    duration: 0.32,
+                                    ease: [0.25, 0.46, 0.45, 0.94],
+                                  }}
                                   className="overflow-hidden pl-10 pb-4 space-y-3"
                                 >
                                   {item.columns.flatMap((col) =>
@@ -270,7 +323,7 @@ export default function Navbar() {
                                       >
                                         {sub.name}
                                       </Link>
-                                    ))
+                                    )),
                                   )}
                                 </motion.div>
                               )}

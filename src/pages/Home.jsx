@@ -4,6 +4,7 @@ import StatsBar from "../components/StatsBar";
 import Headline from "../components/Headline";
 import OurSolution from "../components/OurSolution";
 import WhyPerin from "../components/WhyPerin";
+import AnimatedSection from "../components/ScrollerText";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <StatsBar />
       <Headline />
       <OurSolution />
+      <AnimatedSection />
       <WhyPerin />
     </main>
   );
