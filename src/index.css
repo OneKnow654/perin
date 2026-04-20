@@ -45,9 +45,9 @@ html,body,#root {
 }
 
 body {
-    font-family: "Gt Eesti Pro Display", "sans-serif", system-ui, -apple-system, sans-serif;
-    color: var(--color-text);
-    background: #ffffff;
+  font-family: 'GT Eesti Pro Display Medium', 'Sans-serif', system-ui, -apple-system, sans-serif;
+  color: var(--color-text);
+  background: #ffffff;
 }
 
 /* ── Scrollbar (subtle, WebKit) ─────────────────────────── */
