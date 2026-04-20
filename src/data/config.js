@@ -171,17 +171,17 @@ export const solutions = [
 // ─── Why Perin Tabs ───────────────────────────────────────────────────────────
 export const whyPerinTabs = [
   {
-    title: "We Build",
+    title: "Build",
     content:
       "We partner with healthcare innovators to expand access, elevate brands, and drive growth—reviving and relaunching pharma and medtech solutions across India's evolving market.",
   },
   {
-    title: "We Lead",
+    title: "Lead",
     content:
       "Focused on high-growth therapies and niche specialties, we deliver customized solutions that drive access, impact, and better patient outcomes.",
   },
   {
-    title: "We Expand",
+    title: "Expand",
     content:
       "We scale reach and impact by unlocking new markets, deepening access, and amplifying brand value—accelerating growth across high-potential therapies and specialized care.",
   },

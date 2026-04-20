@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ── CSS Variables (mirrors theme.php) ─────────────────── */
-:root {
+/*:root {
   --color-primary:    #023274;
   --color-secondary:  #F2F1ED;
   --color-accent:     #58b66a;
@@ -13,17 +13,35 @@
   --color-divider:    #DFE1DE;
   --color-footer-bg:  #123134;
   --color-cta-bg:     #4e9695;
+}*/
+
+:root {
+    --color-primary: #002d72; /* Deep Blue - headers, branding */
+    --color-secondary: #ffffff; /* Pure White - backgrounds */
+    --color-accent: #555555; /* Vermilion - CTA, highlights */
+    --color-dark: #002d72; /* Deep Blue (alt usage for strong sections) */
+    --color-text: #002d72; /* Primary text */
+    --color-text-light: #888b8d; /* Cool Gray - secondary text */
+    --color-divider: #d1dddf; /* Light Blue - subtle dividers */
+    --color-footer-bg: #002d72; /* Footer background */
+    --color-cta-bg: #ff4d00; /* CTA buttons */
+    --color-subtab-bg: #d1dddf; /* Light Blue - subtabs */
 }
 
 /* ── Base ───────────────────────────────────────────────── */
 html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-html, body, #root {
-  height: 100%;
+html,body,#root {
+    height: 100%;
+}
+
+html,body,#root {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
 }
 
 body {
@@ -34,40 +52,44 @@ body {
 
 /* ── Scrollbar (subtle, WebKit) ─────────────────────────── */
 ::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+    background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-divider);
-  border-radius: 3px;
+    background: var(--color-divider);
+    border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-light);
+    background: var(--color-text-light);
 }
 
 /* ── Focus Accessibility ────────────────────────────────── */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-  border-radius: 4px;
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
 /* ── Gradient Text Utility ──────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+    background: linear-gradient(
+        135deg,
+        var(--color-accent),
+        var(--color-primary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* ── Smooth image loading ───────────────────────────────── */
 img {
-  transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 img[src=""],
 img:not([src]) {
-  opacity: 0;
+    opacity: 0;
 }

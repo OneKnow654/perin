@@ -7,18 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary:    "#023274",
-        secondary:  "#F2F1ED",
-        accent:     "#58b66a",
-        dark:       "#0F3D3E",
-        text:       "#454040",
-        "text-light": "#8F8F8F",
-        divider:    "#DFE1DE",
-        "footer-bg": "#123134",
-        "cta-bg":   "#4e9695",
+        primary: "#002d72",
+        secondary: "#ffffff",
+        accent: "#ff4d00",
+        dark: "#002d72",
+        text: "#002d72",
+        "text-light": "#888b8d",
+        divider: "#d1dddf",
+        "footer-bg": "#002d72",
+        "cta-bg": "#ff4d00"
       },
       fontFamily: {
-        sans: ["'Segoe UI Variable'", "'Segoe UI'", "system-ui", "-apple-system", "sans-serif"],
+        sans: ["'Gt Eesti Pro Display'", "'sans-serif'", "system-ui", "-apple-system", "sans-serif"],
       },
       borderRadius: {
         "2xl": "1rem",
