@@ -18,7 +18,7 @@
 :root {
     --color-primary: #002d72; /* Deep Blue - headers, branding */
     --color-secondary: #ffffff; /* Pure White - backgrounds */
-    --color-accent: #ff4d00; /* Vermilion - CTA, highlights */
+    --color-accent: #555555; /* Vermilion - CTA, highlights */
     --color-dark: #002d72; /* Deep Blue (alt usage for strong sections) */
     --color-text: #002d72; /* Primary text */
     --color-text-light: #888b8d; /* Cool Gray - secondary text */

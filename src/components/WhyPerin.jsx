@@ -1,9 +1,8 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { whyPerinTabs } from "../data/config";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { slideBlur } from "../utils/animations";
-
 
 export default function WhyPerin() {
   const [index, setIndex] = useState(0);
@@ -24,14 +23,26 @@ export default function WhyPerin() {
     setIndex(i);
   }, []);
 
+  // ✅ Auto slide every 10s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex(prev => (prev + 1) % whyPerinTabs.length);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="py-24 bg-[#F2F1ED]/40 text-center">
       <div className="max-w-3xl mx-auto px-4">
+
         <div className="mt-10 flex flex-col items-center">
 
-          <div className="text-3xl md:text-5xl font-bold text-[#023274]">
-            <span className="mr-2">We</span>
-            <span className="inline-block min-w-[160px] text-center">
+          {/* ✅ FIXED HEADING SPACING */}
+          <div className="text-3xl md:text-5xl font-bold text-[#023274] leading-tight text-center">
+            <span className="inline">We </span>
+
+            <span className="inline-block">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={current.title}
@@ -48,24 +59,26 @@ export default function WhyPerin() {
             </span>
           </div>
 
-        <div className="mt-6 relative h-[120px]">
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={current.content}
-              variants={slideBlur}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={slideBlur.transition}
-              className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl"
-            >
-              {current.content}
-            </motion.p>
-          </AnimatePresence>
+          {/* CONTENT */}
+          <div className="mt-6 relative h-[120px]">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={current.content}
+                variants={slideBlur}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={slideBlur.transition}
+                className="text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto"
+              >
+                {current.content}
+              </motion.p>
+            </AnimatePresence>
           </div>
 
-          <div className="mt-10 flex items-center gap-6">
-
+          {/* CONTROLS */}
+          {/* SINGLE TRACK WITH MOVING ACTIVE SEGMENT */}
+          <div className="flex items-center gap-4">
             <button
               onClick={prev}
               aria-label="Previous slide"
@@ -74,19 +87,23 @@ export default function WhyPerin() {
               <ChevronLeft size={22} />
             </button>
 
-            <div className="flex gap-2">
-              {whyPerinTabs.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => handleDotClick(i)}
-                  aria-label={`Go to slide ${i + 1}`}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    i === index
-                      ? "bg-[#023274] scale-125"
-                      : "bg-gray-300"
-                  }`}
-                />
-              ))}
+            {/* Track */}
+            <div className="relative w-40 md:w-56 h-1 bg-gray-300 rounded-full">
+
+              {/* Moving Active Segment */}
+              <motion.div
+                className="absolute top-0 left-0 h-full w-1/3 bg-[#023274] rounded-full"
+                animate={{
+                  x: `${index * 100}%`
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeInOut"
+                }}
+                style={{
+                  width: `${100 / whyPerinTabs.length}%`
+                }}
+              />
             </div>
 
             <button
@@ -96,7 +113,6 @@ export default function WhyPerin() {
             >
               <ChevronRight size={22} />
             </button>
-
           </div>
         </div>
       </div>
