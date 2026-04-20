@@ -44,7 +44,7 @@ export default function HeroSection() {
             >
               A medicine company working
               <span className="font-bold block text-white">today for a</span>
-              <span className="font-bold drop-shadow-md" style={{ color: "#58b66a" }}>
+              <span className="font-bold drop-shadow-md" style={{ color: "var(--color-accent)" }}>
                 healthier nation tomorrow
               </span>
             </motion.h1>
@@ -64,7 +64,7 @@ export default function HeroSection() {
                 <Link
                   to="/contact"
                   className="block bg-accent text-white px-7 py-3 rounded-full font-semibold hover:bg-accent/90 transition-colors text-center text-sm lg:text-base"
-                  style={{ backgroundColor: "#58b66a" }}
+                  style={{ backgroundColor: "var(--color-accent)" }}
                 >
                   Get In Touch
                 </Link>
@@ -74,7 +74,7 @@ export default function HeroSection() {
                 <Link
                   to="/about"
                   className="block bg-white/90 text-primary px-7 py-3 rounded-full font-semibold hover:bg-white transition-colors text-center text-sm lg:text-base"
-                  style={{ color: "#023274" }}
+                  style={{ color: "var(--color-primary)" }}
                 >
                   Learn More
                 </Link>
