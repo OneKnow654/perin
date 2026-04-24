@@ -16,24 +16,24 @@ const itemVariants = {
 
 export default function HeroSection() {
   return (
-    <section className="p-3 sm:p-4 lg:p-6">
-      <div className="relative overflow-hidden rounded-[20px] min-h-[65vh] lg:min-h-[85vh] flex items-center">
+    <section className="p-3 sm:p-4 lg:p-6 min-h-[92dvh] flex flex-col">
+      <div className="relative overflow-hidden rounded-[20px] flex-1 flex items-center w-full">
 
         {/* Video Background */}
         <video
           autoPlay muted loop playsInline
           className="absolute inset-0 w-full h-full object-cover object-top"
         >
-          <source src="/images/home-banner-video1.mp4" type="video/mp4" />
+          <source src="/src/assets/videos/home-banner-video1.mp4" type="video/mp4" />
         </video>
 
         {/* Subtle gradient overlay for text legibility */}
         <div className="absolute inset-0 bg-black/25" />
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-24">
+        <div className="relative z-10 w-full max-w-[2000px] mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-24">
           <motion.div
-            className="max-w-xl"
+            className="max-w-4xl"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -44,16 +44,16 @@ export default function HeroSection() {
             >
               A medicine company working
               <span className="font-bold block text-white">today for a</span>
-              <span className="font-bold drop-shadow-md" style={{ color: "var(--color-accent)" }}>
+              <span className="font-bold drop-shadow-md">
                 healthier nation tomorrow
               </span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-white text-base lg:text-lg mb-6 lg:mb-8 max-w-md drop-shadow-md"
+              className="text-white text-xly lg:text-2xl mb-6 lg:mb-8 max-w-2xl drop-shadow-md"
             >
-              empowering healthcare, transforming lives
+              Empowering healthcare, Transforming lives
             </motion.p>
 
             <motion.div

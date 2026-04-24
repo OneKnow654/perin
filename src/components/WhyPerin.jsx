@@ -27,14 +27,18 @@ export default function WhyPerin() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex(prev => (prev + 1) % whyPerinTabs.length);
-    }, 10000);
+    }, 7000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [index]);
 
   return (
-    <section className="py-24 bg-[#F2F1ED]/40 text-center">
-      <div className="max-w-3xl mx-auto px-4">
+    <section className="relative overflow-hidden py-24 bg-[#F2F1ED]/40 text-center min-h-[100dvh] flex flex-col justify-center">
+      {/* Decorative Background Blobs */}
+      <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 w-[50vw] h-[50vw] max-w-[800px] max-h-[800px] bg-[#e1eee6] rounded-full opacity-60 pointer-events-none z-0" />
+      <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[50vw] h-[50vw] max-w-[800px] max-h-[800px] bg-[#e1eee6] rounded-full opacity-60 pointer-events-none z-0" />
+
+      <div className="relative z-10 max-w-3xl mx-auto px-4">
 
         <div className="mt-10 flex flex-col items-center">
 
