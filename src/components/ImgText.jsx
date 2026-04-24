@@ -4,7 +4,7 @@ import { fadeLeft, fadeRight, viewport } from "../utils/animations";
 
 export default function ImgText() {
   return (
-    <section className="min-h-screen flex items-center bg-white">
+    <section className="min-h-[100dvh] flex items-center bg-white">
       <div
         className="max-w-[1400px] mx-auto px-4 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2"
       >
@@ -16,12 +16,12 @@ export default function ImgText() {
           whileInView="visible"
           viewport={viewport}
         >
-          <p className="text-sm mb-3 text-gray-500 font-medium">What We Do.</p>
-          <h2 className="text-3xl lg:text-5xl font-light leading-tight mb-6 text-[#023274]">
+          <p className="text-[37px] mb-3 text-gray-500 font-medium">What We Do.</p>
+          <h2 className="text-[41px] font-light leading-tight mb-6 text-[#023274]">
             Collaborating{" "}
             <span className="font-bold">for Global Health</span>
           </h2>
-          <p className="text-sm lg:text-base leading-relaxed max-w-xl text-gray-600 mb-8">
+          <p className="text-[22px] leading-relaxed max-w-xl text-gray-600 mb-8">
             Perin Healthcare partners with global healthcare leaders to deliver trusted,
             high‑quality medicines and medical devices. We are committed to making healthcare
             accessible to everyone, everywhere—providing effective solutions that improve
@@ -59,7 +59,7 @@ export default function ImgText() {
             transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           />
         </motion.div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 }

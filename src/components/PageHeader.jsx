@@ -77,7 +77,7 @@ export default function PageHeader({
         {overlay && <div className={`absolute inset-0 ${overlayOpacity}`} />}
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-3 sm:px-8 lg:px-12 pt-12 pb-16 lg:pt-16 lg:pb-20">
+        <div className="relative z-10 w-full max-w-[2000px] mx-auto px-6 sm:px-8 lg:px-12 pt-12 pb-16 lg:pt-16 lg:pb-20">
           <motion.div
             className="max-w-xl text-left"
             variants={containerVariants}
@@ -92,7 +92,7 @@ export default function PageHeader({
                 {title}
                 {accent && <span className="font-bold block text-white">{accent}</span>}
                 {highlight && (
-                  <span className="font-bold drop-shadow-md" style={{ color: "#58b66a" }}>
+                  <span className="font-bold drop-shadow-md" style={{ color: "#ffffffff" }}>
                     {highlight}
                   </span>
                 )}
@@ -100,7 +100,7 @@ export default function PageHeader({
             )}
 
             {desc && (
-              <motion.p variants={item} className="text-white text-base lg:text-lg mb-6 lg:mb-8 max-w-md drop-shadow-md">
+              <motion.p variants={item} className="text-white text-xl lg:text-2xl mb-6 lg:mb-8 max-w-2xl drop-shadow-md">
                 {desc}
               </motion.p>
             )}
@@ -116,11 +116,10 @@ export default function PageHeader({
                   >
                     <Link
                       to={btn.link}
-                      className={`block px-7 py-3 rounded-full font-semibold transition-colors text-center text-sm lg:text-base ${
-                        btn.style === "secondary"
-                          ? "bg-white/90 text-[#023274] hover:bg-white"
-                          : "text-white hover:opacity-90"
-                      }`}
+                      className={`block px-7 py-3 rounded-full font-semibold transition-colors text-center text-sm lg:text-base ${btn.style === "secondary"
+                        ? "bg-white/90 text-[#023274] hover:bg-white"
+                        : "text-white hover:opacity-90"
+                        }`}
                       style={btn.style !== "secondary" ? { backgroundColor: "#58b66a" } : {}}
                     >
                       {btn.text}

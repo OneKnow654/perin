@@ -5,8 +5,8 @@ import { staggerContainer, fadeUp, viewport } from "../utils/animations";
 
 export default function OurSolution() {
   return (
-    <section className="py-16 lg:py-24 bg-white" aria-labelledby="our-solutions-heading">
-      <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
+    <section className="py-16 lg:py-24 bg-white min-h-[100dvh] flex flex-col justify-center" aria-labelledby="our-solutions-heading">
+      <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
         <motion.h2
           id="our-solutions-heading"
           className="text-3xl lg:text-4xl font-bold text-[#023274] mb-10 text-left"

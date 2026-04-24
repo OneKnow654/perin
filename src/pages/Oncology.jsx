@@ -98,11 +98,12 @@ function ProductIcon({ brand }) {
 function ExpandPanel({ product, onClose }) {
   return (
     <motion.div
-      className="bg-white rounded-2xl border border-[#023274]/20 shadow-2xl overflow-hidden"
-      initial={{ opacity: 0, scale: 0.97 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.97 }}
-      transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="absolute inset-0 z-20 bg-white flex flex-col"
+      initial={{ y: "100%" }}
+      animate={{ y: 0 }}
+      exit={{ y: "100%" }}
+      transition={{ duration: 0.38, ease: [0.25, 0.46, 0.45, 0.94] }}
+      onClick={(e) => e.stopPropagation()}
     >
       {/* Header */}
       <div
@@ -127,7 +128,7 @@ function ExpandPanel({ product, onClose }) {
       </div>
 
       {/* Body */}
-      <div className="p-5 overflow-y-auto max-h-[420px]">
+      <div className="p-5 overflow-y-auto flex-1">
         <p className="text-xs font-bold tracking-widest uppercase text-[#023274] mb-2">About</p>
         <p className="text-gray-600 text-sm leading-relaxed mb-5">{product.desc}</p>
 
@@ -180,9 +181,9 @@ function ExpandPanel({ product, onClose }) {
           >
             <ArrowRight size={13} /> Full Product Page
           </Link>
-          <Link to="/contact" className="text-center text-xs text-[#023274] font-semibold hover:underline underline-offset-2 pt-1">
+          <a href="https://wa.me/919819464064" target="_blank" rel="noopener noreferrer" className="text-center text-xs text-[#023274] font-semibold hover:underline underline-offset-2 pt-1">
             Contact our sales team →
-          </Link>
+          </a>
         </div>
       </div>
     </motion.div>
@@ -276,11 +277,10 @@ export default function Oncology() {
                 <motion.button
                   key={tab.key}
                   onClick={() => { setActiveFilter(tab.key); setExpanded(null); }}
-                  className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
-                    activeFilter === tab.key
-                      ? "bg-[#023274] text-white border-[#023274]"
-                      : "border-gray-200 bg-white text-gray-500 hover:border-[#023274] hover:text-[#023274]"
-                  }`}
+                  className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${activeFilter === tab.key
+                    ? "bg-[#023274] text-white border-[#023274]"
+                    : "border-gray-200 bg-white text-gray-500 hover:border-[#023274] hover:text-[#023274]"
+                    }`}
                   whileTap={{ scale: 0.95 }}
                 >
                   {tab.label}
@@ -317,9 +317,9 @@ export default function Oncology() {
               viewport={viewport}
             >
               {filtered.map((product, i) => (
-                <motion.div key={product.slug} variants={scaleIn} layout>
+                <motion.div key={product.slug} variants={scaleIn} layout className="h-full">
                   <motion.div
-                    className="bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col cursor-pointer"
+                    className="relative bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col h-full"
                     whileHover={{ boxShadow: "0 8px 40px rgba(2,50,116,0.12)", y: -4 }}
                     transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
@@ -346,32 +346,23 @@ export default function Oncology() {
                       </div>
                       <motion.button
                         onClick={() => setExpanded(expanded === product.slug ? null : product.slug)}
-                        className={`flex-1 text-center text-sm font-semibold py-2.5 rounded-lg transition-colors duration-200 ${
-                          expanded === product.slug
-                            ? "bg-gray-200 text-gray-700"
-                            : "bg-[#023274] text-white hover:bg-[#023274]/90"
-                        }`}
+                        className={`mt-auto text-center text-sm font-semibold py-2.5 rounded-lg transition-colors duration-200 ${expanded === product.slug
+                          ? "bg-gray-200 text-gray-700"
+                          : "bg-[#023274] text-white hover:bg-[#023274]/90"
+                          }`}
                         whileTap={{ scale: 0.97 }}
                       >
                         {expanded === product.slug ? "Close ✕" : "View Details"}
                       </motion.button>
                     </div>
-                  </motion.div>
 
-                  {/* Expand panel below the card */}
-                  <AnimatePresence>
-                    {expanded === product.slug && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.38, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        className="overflow-hidden mt-3"
-                      >
+                    {/* Expand panel overlaid inside the card */}
+                    <AnimatePresence>
+                      {expanded === product.slug && (
                         <ExpandPanel product={product} onClose={() => setExpanded(null)} />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
                 </motion.div>
               ))}
             </motion.div>
@@ -412,22 +403,6 @@ export default function Oncology() {
           </motion.div>
         </div>
       </section>
-
-      {/* CTA Banner */}
-      <div className="mx-6 lg:mx-16 xl:mx-24 rounded-2xl p-14 text-center relative overflow-hidden mb-20"
-        style={{ background: "linear-gradient(135deg, #0F3D3E 0%, #023274 60%, #58b66a 100%)" }}>
-        <div className="relative z-10">
-          <h2 className="text-3xl font-bold text-white mb-3">Need a Product Not Listed Here?</h2>
-          <p className="text-white/75 text-base max-w-md mx-auto mb-8">
-            Our team can help with custom formulations, bulk orders, and partnership inquiries.
-          </p>
-          <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 380, damping: 24 }} className="inline-block">
-            <Link to="/contact" className="inline-block bg-white font-bold text-sm px-10 py-4 rounded-xl hover:shadow-2xl transition-all duration-200" style={{ color: "#023274" }}>
-              Contact Our Sales Team
-            </Link>
-          </motion.div>
-        </div>
-      </div>
     </main>
   );
 }

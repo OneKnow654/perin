@@ -13,10 +13,10 @@ const socialIconMap = {
 
 export default function Footer() {
   return (
-    <>
+    <div className="min-h-[92dvh] flex flex-col">
       {/* CTA Section */}
       <motion.section
-        className="py-16 lg:py-20 text-center"
+        className="py-16 lg:py-20 text-center flex-1 flex flex-col justify-center"
         style={{ backgroundColor: "#4e9695" }}
         variants={fadeUp}
         initial="hidden"
@@ -175,6 +175,6 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
