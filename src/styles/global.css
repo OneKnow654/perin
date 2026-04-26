@@ -1,46 +1,46 @@
 @font-face {
-  font-family: "Gteesti Pro Display";
-  src: url("../assets/fonts/gteestiprodisplay_thin.otf") format("otf");
+  font-family: "GT Eesti Pro Display Thin";
+  src: url("../assets/fonts/gteestiprodisplay_thin.otf") format("opentype");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Gteesti Pro Display";
-  src: url("../assets/fonts/gteestiprodisplay_light.otf") format("otf");
+  font-family: "GT Eesti Pro Display Light";
+  src: url("../assets/fonts/gteestiprodisplay_light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Gteesti Pro Display";
-  src: url("../assets/fonts/gteestiprodisplay_regular.otf") format("otf");
+  font-family: "GT Eesti Pro Display Regular";
+  src: url("../assets/fonts/gteestiprodisplay_regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Gteesti Pro Display";
-  src: url("../assets/fonts/gteestiprodisplay_medium.otf") format("otf");
+  font-family: "GT Eesti Pro Display Medium";
+  src: url("../assets/fonts/gteestiprodisplay_medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Gteesti Pro Display";
-  src: url("../assets/fonts/gteestiprodisplay_bold.otf") format("otf");
+  font-family: "GT Eesti Pro Display Bold";
+  src: url("../assets/fonts/gteestiprodisplay_bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Gteesti Pro Display";
-  src: url("../assets/fonts/gteestiprodisplay_ultrabold.otf") format("otf");
+  font-family: "GT Eesti Pro Display UltraBold";
+  src: url("../assets/fonts/gteestiprodisplay_ultrabold.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
