@@ -28,9 +28,9 @@ const impactBlocks = [
 ];
 
 const team = [
-  { name: "Dr. Daxa Thakkar", role: "Medical Director", image: "/images/perin-team1.jpg" },
-  { name: "Mr. Shiva Prasad", role: "Sales Director", image: "/images/Shiva Prasad.jpeg" },
-  { name: "Miss Saili Gaikwad", role: "Head, HR", image: "/images/perin-Miss-Saili-Gaikwad.jpg" },
+  { name: "Dr. Daxa Thakkar", role: "Medical Director", image: "src/assets/Images/perin-team1.jpg" },
+  { name: "Mr. Shiva Prasad", role: "Sales Director", image: "src/assets/Images/Shiva Prasad.jpeg" },
+  { name: "Miss Saili Gaikwad", role: "Head, HR", image: "src/assets/Images/perin-Miss-Saili-Gaikwad.jpg" },
 ];
 
 export default function About() {

@@ -60,6 +60,8 @@ const itemVariants = {
   }),
 };
 
+import perinLogo from "../assets/Images/PerinLogo.jpeg";
+
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -94,23 +96,16 @@ export default function Navbar() {
         transition={{ duration: 0.3 }}
       >
         <nav className="max-w-[1400px] mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-20 lg:h-28">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0">
               <motion.img
-                src={app.logo}
-                alt={app.site_name}
-                className="h-10 lg:h-12"
-                whileHover={{ scale: 1.03 }}
+                src={perinLogo}
+                alt="Perin Healthcare"
+                className="h-14 lg:h-20 w-auto object-contain"
+                whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextSibling.style.display = "block";
-                }}
               />
-              <span className="hidden font-bold text-primary text-lg">
-                Perin Healthcare
-              </span>
             </Link>
 
             {/* Desktop Menu */}
