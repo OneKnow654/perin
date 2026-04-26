@@ -111,7 +111,7 @@ export default function PerinHealthcareBento() {
           }}>
             <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 70% 15%, rgba(255,255,255,0.13) 0%, transparent 60%)", pointerEvents: "none" }} />
             <span style={{ fontSize: 45, fontWeight: 900, color: "#fff", lineHeight: 1 }}>04+</span>
-            <span style={{ fontSize: 17, fontWeight: 700, color: "#BFDBFE", textAlign: "center", textTransform: "uppercase", letterSpacing: "0.05em" }}>Major Therapy Area</span>
+            <span style={{ fontSize: 16, fontWeight: 700, color: "#BFDBFE", textAlign: "center", textTransform: "uppercase", letterSpacing: "0.05em" }}>Major Therapy Area</span>
           </motion.div>
 
           {/* 3 — Lab Image */}

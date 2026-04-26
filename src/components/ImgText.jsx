@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { fadeLeft, fadeRight, viewport } from "../utils/animations";
+import whatWeDoImg from "../assets/Images/WhatWeDo2.png";
 
 export default function ImgText() {
   return (
@@ -52,9 +53,9 @@ export default function ImgText() {
           className="overflow-hidden"
         >
           <motion.img
-            src="/images/wwo.png"
+            src={whatWeDoImg}
             alt="Healthcare"
-            className="h-[400px] lg:h-auto w-full object-cover rounded-xl"
+            className="h-[400px] lg:h-auto w-full object-cover rounded-xl shadow-lg"
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           />

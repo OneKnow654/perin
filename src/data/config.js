@@ -65,8 +65,8 @@ export const menu = [
       {
         heading: "Partners",
         items: [
-          { name: "Corza Medical", link: "/global-alliance#corza-medical" },
-          { name: "Eagle Pharmaceuticals", link: "#" },
+          { name: "Corza Medical", link: "/corza-medical" },
+          { name: "Eagle Pharmaceuticals", link: "coming-soon" },
         ],
       },
     ],
@@ -87,7 +87,7 @@ export const menu = [
         heading: "Specialties",
         items: [
           { name: "Anaesthesiology", link: "/rare-diseases" },
-          { name: "Biosurgery", link: "#" },
+          { name: "Biosurgery", link: "coming-soon" },
         ],
       },
     ],
@@ -137,7 +137,7 @@ export const footerConfig = {
     ],
     Company: [
       { name: "We Are Perin", link: "/about" },
-      { name: "Global Alliance", link: "/global-alliance" },
+      { name: "Global Alliance", link: "/corza-medical" },
       { name: "Product Portfolio", link: "/oncology" },
       { name: "We Care", link: "#" },
       { name: "Media", link: "#" },
@@ -162,10 +162,10 @@ export const stats = [
 
 // ─── Solutions ───────────────────────────────────────────────────────────────
 export const solutions = [
-  { title: "Biosurgery", href: "/oncology", image: "/images/Biosurgery.png", alt: "Biosurgery product" },
-  { title: "Biomedical Textiles", href: "/oncology", image: "/images/Biosurgery.png", alt: "Biomedical textiles" },
-  { title: "Ophthalmology", href: "/oncology", image: "/images/Biosurgery.png", alt: "Ophthalmology instruments" },
-  { title: "Wound Closure", href: "/oncology", image: "/images/Biosurgery.png", alt: "Wound closure suture" },
+  { title: "Biosurgery", href: "/oncology", image: "src/assets/Images/Biosurgery.png", alt: "Biosurgery product" },
+  { title: "Biomedical Textiles", href: "/oncology", image: "src/assets/Images/Biomedical Textiles.png", alt: "Biomedical textiles", scale: 1.25 },
+  { title: "Ophthalmology", href: "/oncology", image: "src/assets/Images/Ophthalmology.png", alt: "Ophthalmology instruments", scale: 1.2 },
+  { title: "Wound Closure", href: "/oncology", image: "src/assets/Images/Wound Closure.png", alt: "Wound closure suture" },
 ];
 
 // ─── Why Perin Tabs ───────────────────────────────────────────────────────────
