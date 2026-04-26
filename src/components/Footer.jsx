@@ -134,7 +134,7 @@ export default function Footer() {
               </h5>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <Mail size={15} className="text-[#58b66a] mt-0.5 shrink-0" />
+                  <Mail size={15} className="text-[##002953] mt-0.5 shrink-0" />
                   <a
                     href={`mailto:${app.contact.email}`}
                     className="text-white/70 text-sm hover:text-[#58b66a] transition-colors"

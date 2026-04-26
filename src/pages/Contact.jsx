@@ -15,11 +15,14 @@ const infoCards = [
 ];
 
 const inputCls =
-  "w-full border-b border-[#DFE1DE] bg-transparent py-3 text-[#023274] placeholder:text-[#8F8F8F] focus:border-[#58b66a] focus:outline-none transition-colors";
+  "w-full border-b border-[#C3D6DE] bg-transparent py-3 text-[#C3D6DE] placeholder:text-[#8F8F8F] focus:border-[#002953] focus:outline-none transition-colors";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [sent, setSent] = useState(false);
+
+  // ✅ Dock state
+  const [hovered, setHovered] = useState(null);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
@@ -59,8 +62,8 @@ export default function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-12"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#58b66a]/15 flex items-center justify-center mx-auto mb-4">
-                    <Mail size={28} className="text-[#58b66a]" />
+                  <div className="w-16 h-16 rounded-full bg-[#002953]/15 flex items-center justify-center mx-auto mb-4">
+                    <Mail size={28} className="text-[#3B82F6]" />
                   </div>
                   <h4 className="text-xl font-bold text-[#023274] mb-2">Message Sent!</h4>
                   <p className="text-[#8F8F8F]">We'll get back to you within 24 hours.</p>
@@ -92,7 +95,7 @@ export default function Contact() {
                   <motion.button
                     type="submit"
                     className="inline-flex items-center gap-2 text-white px-8 py-3 rounded-full font-semibold transition-colors"
-                    style={{ backgroundColor: "#58b66a" }}
+                    style={{ backgroundColor: "#002953" }}
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.96 }}
                     transition={{ type: "spring", stiffness: 380, damping: 24 }}
@@ -117,13 +120,13 @@ export default function Contact() {
                   key={i}
                   href={href}
                   variants={fadeUp}
-                  className="block bg-white rounded-2xl border border-[#DFE1DE] p-6 hover:border-[#58b66a] hover:shadow-lg transition-all duration-300 group"
+                  className="block bg-white rounded-2xl border border-[#DFE1DE] p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all duration-300 group"
                   whileHover={{ y: -3 }}
                   transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-full bg-[#58b66a]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#58b66a] transition-colors">
-                      <Icon size={16} className="text-[#58b66a] group-hover:text-white transition-colors" />
+                    <div className="w-11 h-11 rounded-full bg-[#3B82F6]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#3B82F6] transition-colors">
+                      <Icon size={16} className="text-[#3B82F6] group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <h4 className="font-bold text-[#023274] text-sm mb-1">{title}</h4>
@@ -137,7 +140,7 @@ export default function Contact() {
               <motion.div
                 variants={fadeUp}
                 className="rounded-2xl p-6"
-                style={{ backgroundColor: "#0F3D3E" }}
+                style={{ backgroundColor: "#002953" }}
               >
                 <h4 className="font-bold text-white text-sm mb-3">Chat with us</h4>
                 <p className="text-white/60 text-sm mb-4">
@@ -147,7 +150,7 @@ export default function Contact() {
                   href="https://wa.me/919819464064"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[#58b66a] font-semibold text-sm hover:gap-3 transition-all"
+                  className="inline-flex items-center gap-2 text-[#EDF2F1] font-semibold text-sm hover:gap-3 transition-all"
                   whileHover={{ x: 4 }}
                   transition={{ type: "spring", stiffness: 380, damping: 24 }}
                 >
@@ -159,22 +162,47 @@ export default function Contact() {
               <motion.div
                 variants={fadeUp}
                 className="rounded-2xl p-6"
-                style={{ backgroundColor: "#0F3D3E" }}
+                style={{ backgroundColor: "#002953" }}
               >
                 <h4 className="font-bold text-white text-sm mb-4">Follow Us</h4>
+
                 <div className="flex gap-3">
                   {app.social.map((s, i) => {
                     const Icon = socialIconMap[s.icon];
+
+                    const distance = hovered !== null ? Math.abs(hovered - i) : 0;
+
+                    // ✅ Reduced scale values (more balanced)
+                    const scale =
+                      hovered === i
+                        ? 1.25
+                        : distance === 1
+                        ? 1.12
+                        : distance === 2
+                        ? 1.04
+                        : 1;
+
                     return Icon ? (
                       <motion.a
                         key={i}
                         href={s.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white/70 hover:border-[#58b66a] hover:text-[#58b66a] transition-all"
-                        whileHover={{ scale: 1.12, y: -2 }}
-                        whileTap={{ scale: 0.92 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 22 }}
+                        onMouseEnter={() => setHovered(i)}
+                        onMouseLeave={() => setHovered(null)}
+                        className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white/70 hover:border-[#3B82F6] hover:text-[#3B82F6] transition-colors duration-200"
+
+                        animate={{
+                          scale,
+                          y: hovered === i ? -5 : 0
+                        }}
+
+                        transition={{
+                          type: "spring",
+                          stiffness: 550,
+                          damping: 18,
+                          mass: 0.4
+                        }}
                       >
                         <Icon size={14} />
                       </motion.a>
