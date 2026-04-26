@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { menu, app } from "../data/config";
+import { useComingSoon } from "../context/ComingSoonContext";
 import {
   Users,
   Globe,
@@ -64,6 +65,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const { openComingSoon } = useComingSoon();
   const timeoutRef = useRef(null);
 
   useEffect(() => {
@@ -122,21 +124,31 @@ export default function Navbar() {
                     onMouseEnter={() => item.type === "mega" && openMenu(i)}
                     onMouseLeave={closeMenu}
                   >
-                    <Link
-                      to={item.link ?? "#"}
-                      className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-sm font-medium text-primary hover:text-accent transition-colors rounded-lg hover:bg-[#F2F1ED]/60 group"
-                    >
-                      {Icon && <Icon size={13} className="opacity-60" />}
-                      {item.title}
-                      {item.type === "mega" && (
-                        <motion.span
-                          animate={{ rotate: activeMenu === i ? 180 : 0 }}
-                          transition={{ duration: 0.22, ease: "easeInOut" }}
-                        >
-                          <ChevronDown size={11} className="opacity-50" />
-                        </motion.span>
-                      )}
-                    </Link>
+                    {item.link === "coming-soon" ? (
+                      <button
+                        onClick={openComingSoon}
+                        className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-sm font-medium text-primary hover:text-accent transition-colors rounded-lg hover:bg-[#F2F1ED]/60 group"
+                      >
+                        {Icon && <Icon size={13} className="opacity-60" />}
+                        {item.title}
+                      </button>
+                    ) : (
+                      <Link
+                        to={item.link ?? "#"}
+                        className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-sm font-medium text-primary hover:text-accent transition-colors rounded-lg hover:bg-[#F2F1ED]/60 group"
+                      >
+                        {Icon && <Icon size={13} className="opacity-60" />}
+                        {item.title}
+                        {item.type === "mega" && (
+                          <motion.span
+                            animate={{ rotate: activeMenu === i ? 180 : 0 }}
+                            transition={{ duration: 0.22, ease: "easeInOut" }}
+                          >
+                            <ChevronDown size={11} className="opacity-50" />
+                          </motion.span>
+                        )}
+                      </Link>
+                    )}
                   </li>
                 );
               })}
@@ -151,7 +163,7 @@ export default function Navbar() {
               >
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors"
+                  className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
                 >
                   Get In Touch <ArrowRight size={13} />
                 </Link>
@@ -160,7 +172,7 @@ export default function Navbar() {
 
             {/* Mobile Toggle */}
             <motion.button
-              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg bg-accent text-white"
+              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white"
               onClick={() => setMobileOpen(true)}
               whileTap={{ scale: 0.92 }}
             >
@@ -209,12 +221,24 @@ export default function Navbar() {
                                       duration: 0.25,
                                     }}
                                   >
-                                    <Link
-                                      to={sub.link}
-                                      className="text-white hover:text-[#58b66a] transition-colors text-[15px] font-medium"
-                                    >
-                                      {sub.name}
-                                    </Link>
+                                    {sub.link === "coming-soon" ? (
+                                      <button
+                                        onClick={() => {
+                                          setActiveMenu(null);
+                                          openComingSoon();
+                                        }}
+                                        className="text-white hover:text-[#58b66a] transition-colors text-[15px] font-medium block w-full text-left"
+                                      >
+                                        {sub.name}
+                                      </button>
+                                    ) : (
+                                      <Link
+                                        to={sub.link}
+                                        className="text-white hover:text-[#58b66a] transition-colors text-[15px] font-medium"
+                                      >
+                                        {sub.name}
+                                      </Link>
+                                    )}
                                   </motion.li>
                                 ))}
                               </ul>
@@ -243,7 +267,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
-              className="fixed inset-0 z-[999] bg-accent lg:hidden overflow-y-auto"
+              className="fixed inset-0 z-[999] bg-primary lg:hidden overflow-y-auto"
               variants={drawerVariants}
               initial="hidden"
               animate="visible"
@@ -315,14 +339,27 @@ export default function Navbar() {
                                 >
                                   {item.columns.flatMap((col) =>
                                     col.items.map((sub, si) => (
-                                      <Link
-                                        key={si}
-                                        to={sub.link}
-                                        className="block text-white/80 hover:text-white transition-colors"
-                                        onClick={() => setMobileOpen(false)}
-                                      >
-                                        {sub.name}
-                                      </Link>
+                                      sub.link === "coming-soon" ? (
+                                        <button
+                                          key={si}
+                                          onClick={() => {
+                                            setMobileOpen(false);
+                                            openComingSoon();
+                                          }}
+                                          className="block text-white/80 hover:text-white transition-colors text-left w-full"
+                                        >
+                                          {sub.name}
+                                        </button>
+                                      ) : (
+                                        <Link
+                                          key={si}
+                                          to={sub.link}
+                                          className="block text-white/80 hover:text-white transition-colors"
+                                          onClick={() => setMobileOpen(false)}
+                                        >
+                                          {sub.name}
+                                        </Link>
+                                      )
                                     )),
                                   )}
                                 </motion.div>
@@ -330,14 +367,27 @@ export default function Navbar() {
                             </AnimatePresence>
                           </>
                         ) : (
-                          <Link
-                            to={item.link}
-                            className="flex items-center gap-3 py-4 text-white font-medium text-lg"
-                            onClick={() => setMobileOpen(false)}
-                          >
-                            {Icon && <Icon size={18} />}
-                            {item.title}
-                          </Link>
+                          item.link === "coming-soon" ? (
+                            <button
+                              onClick={() => {
+                                setMobileOpen(false);
+                                openComingSoon();
+                              }}
+                              className="flex items-center gap-3 w-full py-4 text-white font-medium text-lg"
+                            >
+                              {Icon && <Icon size={18} />}
+                              {item.title}
+                            </button>
+                          ) : (
+                            <Link
+                              to={item.link}
+                              className="flex items-center gap-3 py-4 text-white font-medium text-lg"
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              {Icon && <Icon size={18} />}
+                              {item.title}
+                            </Link>
+                          )
                         )}
                       </motion.li>
                     );
@@ -351,7 +401,7 @@ export default function Navbar() {
                 >
                   <Link
                     to="/contact"
-                    className="inline-block mt-8 bg-white text-accent px-6 py-3 rounded-full font-semibold"
+                    className="inline-block mt-8 bg-white text-primary px-6 py-3 rounded-full font-semibold"
                     onClick={() => setMobileOpen(false)}
                   >
                     Get In Touch

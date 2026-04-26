@@ -3,24 +3,26 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import { ComingSoonProvider } from "./context/ComingSoonContext";
 
-import Home          from "./pages/Home";
-import About         from "./pages/About";
-import WhoAreWe      from "./pages/WhoAreWe";
-import WhatWeDo      from "./pages/WhatWeDo";
-import OurStory      from "./pages/OurStory";
-import OurMission    from "./pages/OurMission";
-import OurVision     from "./pages/OurVision";
-import OurIdentity   from "./pages/OurIdentity";
-import OurImpact     from "./pages/OurImpact";
-import GlobalAlliance from "./pages/GlobalAlliance";
-import Oncology      from "./pages/Oncology";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import WhoAreWe from "./pages/WhoAreWe";
+import WhatWeDo from "./pages/WhatWeDo";
+import OurStory from "./pages/OurStory";
+import OurMission from "./pages/OurMission";
+import OurVision from "./pages/OurVision";
+import OurIdentity from "./pages/OurIdentity";
+import OurImpact from "./pages/OurImpact";
+import CorzaMedical from "./pages/CorzaMedical";
+import Oncology from "./pages/Oncology";
+import Oncology2 from "./pages/Oncology2";
 import Ophthalmology from "./pages/Ophthalmology";
-import Career        from "./pages/Career";
-import Contact       from "./pages/Contact";
-import Distributor   from "./pages/Distributor";
-import ComingSoon    from "./pages/ComingSoon";
-import NotFound      from "./pages/NotFound";
+import Career from "./pages/Career";
+import Contact from "./pages/Contact";
+import Distributor from "./pages/Distributor";
+import NotFound from "./pages/NotFound";
 
 const pageVariants = {
   initial: { opacity: 0, y: 18 },
@@ -46,30 +48,30 @@ function AnimatedRoutes() {
         exit="exit"
       >
         <Routes location={location}>
-          <Route path="/"                element={<Home />} />
-          <Route path="/about"           element={<About />} />
-          <Route path="/who-are-we"      element={<WhoAreWe />} />
-          <Route path="/what-we-do"      element={<WhatWeDo />} />
-          <Route path="/our-story"       element={<OurStory />} />
-          <Route path="/our-mission"     element={<OurMission />} />
-          <Route path="/our-vision"      element={<OurVision />} />
-          <Route path="/our-identity"    element={<OurIdentity />} />
-          <Route path="/our-impact"      element={<OurImpact />} />
-          <Route path="/global-alliance" element={<GlobalAlliance />} />
-          <Route path="/oncology"        element={<Oncology />} />
-          <Route path="/ophthalmology"   element={<Ophthalmology />} />
-          <Route path="/rare-diseases"   element={<Oncology />} />
-          <Route path="/product-page"    element={<Oncology />} />
-          <Route path="/nanonext"        element={<Oncology />} />
-          <Route path="/letrolive"       element={<Oncology />} />
-          <Route path="/palody"          element={<Oncology />} />
-          <Route path="/anaview"         element={<Oncology />} />
-          <Route path="/embopag"         element={<Oncology />} />
-          <Route path="/contact"         element={<Contact />} />
-          <Route path="/career"          element={<Career />} />
-          <Route path="/distributor"     element={<Distributor />} />
-          <Route path="/coming-soon"     element={<ComingSoon />} />
-          <Route path="*"               element={<NotFound />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/who-are-we" element={<WhoAreWe />} />
+          <Route path="/what-we-do" element={<WhatWeDo />} />
+          <Route path="/our-story" element={<OurStory />} />
+          <Route path="/our-mission" element={<OurMission />} />
+          <Route path="/our-vision" element={<OurVision />} />
+          <Route path="/our-identity" element={<OurIdentity />} />
+          <Route path="/our-impact" element={<OurImpact />} />
+          <Route path="/corza-medical" element={<CorzaMedical />} />
+          <Route path="/oncology" element={<Oncology />} />
+          <Route path="/oncology2" element={<Oncology2 />} />
+          <Route path="/ophthalmology" element={<Ophthalmology />} />
+          <Route path="/rare-diseases" element={<Oncology />} />
+          <Route path="/product-page" element={<Oncology />} />
+          <Route path="/nanonext" element={<Oncology />} />
+          <Route path="/letrolive" element={<Oncology />} />
+          <Route path="/palody" element={<Oncology />} />
+          <Route path="/anaview" element={<Oncology />} />
+          <Route path="/embopag" element={<Oncology />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/distributor" element={<Distributor />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
@@ -79,13 +81,16 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-1">
-          <AnimatedRoutes />
-        </main>
-        <Footer />
-      </div>
+      <ComingSoonProvider>
+        <ScrollToTop />
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-1">
+            <AnimatedRoutes />
+          </main>
+          <Footer />
+        </div>
+      </ComingSoonProvider>
     </BrowserRouter>
   );
 }

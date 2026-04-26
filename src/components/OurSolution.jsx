@@ -59,7 +59,9 @@ export default function OurSolution() {
                   alt={item.alt}
                   className="max-h-[220px] w-full max-w-[280px] sm:max-w-none object-contain object-right sm:object-center translate-x-1 sm:translate-x-3 md:translate-x-4 select-none pointer-events-none"
                   loading="lazy"
-                  whileHover={{ scale: 1.06, x: -4 }}
+                  initial={{ scale: item.scale || 1 }}
+                  animate={{ scale: item.scale || 1 }}
+                  whileHover={{ scale: (item.scale || 1) * 1.06, x: -4 }}
                   transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
                 />
               </div>

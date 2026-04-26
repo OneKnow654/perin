@@ -16,16 +16,26 @@
 }*/
 
 :root {
-    --color-primary: #002d72; /* Deep Blue - headers, branding */
-    --color-secondary: #ffffff; /* Pure White - backgrounds */
-    --color-accent: #555555; /* Vermilion - CTA, highlights */
-    --color-dark: #002d72; /* Deep Blue (alt usage for strong sections) */
-    --color-text: #002d72; /* Primary text */
-    --color-text-light: #888b8d; /* Cool Gray - secondary text */
-    --color-divider: #d1dddf; /* Light Blue - subtle dividers */
-    --color-footer-bg: #002d72; /* Footer background */
-    --color-cta-bg: #ff4d00; /* CTA buttons */
-    --color-subtab-bg: #d1dddf; /* Light Blue - subtabs */
+    --color-primary: #002d72;
+    /* Deep Blue - headers, branding */
+    --color-secondary: #ffffff;
+    /* Pure White - backgrounds */
+    --color-accent: #555555;
+    /* Vermilion - CTA, highlights */
+    --color-dark: #002d72;
+    /* Deep Blue (alt usage for strong sections) */
+    --color-text: #002d72;
+    /* Primary text */
+    --color-text-light: #888b8d;
+    /* Cool Gray - secondary text */
+    --color-divider: #d1dddf;
+    /* Light Blue - subtle dividers */
+    --color-footer-bg: #002d72;
+    /* Footer background */
+    --color-cta-bg: #ff4d00;
+    /* CTA buttons */
+    --color-subtab-bg: #d1dddf;
+    /* Light Blue - subtabs */
 }
 
 /* ── Base ───────────────────────────────────────────────── */
@@ -35,32 +45,39 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-html,body,#root {
+html,
+body,
+#root {
     height: 100%;
 }
 
-html,body,#root {
+html,
+body,
+#root {
     background-color: var(--color-secondary);
     color: var(--color-text);
 }
 
 body {
-  font-family: 'GT Eesti Pro Display Medium', 'Sans-serif', system-ui, -apple-system, sans-serif;
-  color: var(--color-text);
-  background: #ffffff;
+    font-family: 'GT Eesti Pro Display Medium', 'Sans-serif', system-ui, -apple-system, sans-serif;
+    color: var(--color-text);
+    background: #ffffff;
 }
 
 /* ── Scrollbar (subtle, WebKit) ─────────────────────────── */
 ::-webkit-scrollbar {
     width: 6px;
 }
+
 ::-webkit-scrollbar-track {
     background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
     background: var(--color-divider);
     border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-text-light);
 }
@@ -75,11 +92,9 @@ button:focus-visible {
 
 /* ── Gradient Text Utility ──────────────────────────────── */
 .gradient-text {
-    background: linear-gradient(
-        135deg,
-        var(--color-accent),
-        var(--color-primary)
-    );
+    background: linear-gradient(135deg,
+            var(--color-accent),
+            var(--color-primary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -89,6 +104,7 @@ button:focus-visible {
 img {
     transition: opacity 0.3s ease;
 }
+
 img[src=""],
 img:not([src]) {
     opacity: 0;
