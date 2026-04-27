@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { app, footerConfig } from "../data/config";
 import { fadeUp, staggerContainer, viewport } from "../utils/animations";
 import { Facebook, Youtube, Linkedin, Instagram, Mail, Phone } from "lucide-react";
+import { useComingSoon } from "../context/ComingSoonContext";
 
 const socialIconMap = {
   facebook: Facebook,
@@ -11,7 +12,10 @@ const socialIconMap = {
   instagram: Instagram,
 };
 
+
 export default function Footer() {
+  const { openComingSoon } = useComingSoon();
+
   return (
     <div className="min-h-[92dvh] flex flex-col">
       {/* CTA Section */}
@@ -72,21 +76,29 @@ export default function Footer() {
             <motion.div variants={fadeUp} className="lg:col-span-1">
               <img
                 src={app.logo_footer}
-                alt={app.site_name}
-                className="h-10 mb-5"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextSibling.style.display = "block";
-                }}
+                alt="Perin Healthcare"
+                className="h-10 lg:h-12 w-auto object-contain scale-[2.4] origin-left mb-8 brightness-0 invert"
               />
-              <span className="hidden text-white font-bold text-lg mb-5 block">{app.site_name}</span>
               <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-xs">
                 {app.footer_tagline}
               </p>
               <div className="flex gap-3">
                 {app.social.map((s, i) => {
                   const Icon = socialIconMap[s.icon];
-                  return Icon ? (
+                  if (!Icon) return null;
+                  
+                  return s.url === "coming-soon" ? (
+                    <motion.button
+                      key={i}
+                      onClick={openComingSoon}
+                      className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white/80 hover:border-[#58b66a] hover:text-[#58b66a] transition-all duration-300 text-sm"
+                      whileHover={{ scale: 1.12, y: -2 }}
+                      whileTap={{ scale: 0.92 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 22 }}
+                    >
+                      <Icon size={14} />
+                    </motion.button>
+                  ) : (
                     <motion.a
                       key={i}
                       href={s.url}
@@ -99,7 +111,7 @@ export default function Footer() {
                     >
                       <Icon size={14} />
                     </motion.a>
-                  ) : null;
+                  );
                 })}
               </div>
             </motion.div>
@@ -114,12 +126,21 @@ export default function Footer() {
                   {links.map((link, li) => (
                     <li key={li}>
                       <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 380, damping: 24 }}>
-                        <Link
-                          to={link.link}
-                          className="text-white/70 text-sm hover:text-[#58b66a] transition-all duration-200"
-                        >
-                          {link.name}
-                        </Link>
+                        {link.link === "coming-soon" ? (
+                          <button
+                            onClick={openComingSoon}
+                            className="text-white/70 text-sm hover:text-[#58b66a] transition-all duration-200 block w-full text-left"
+                          >
+                            {link.name}
+                          </button>
+                        ) : (
+                          <Link
+                            to={link.link}
+                            className="text-white/70 text-sm hover:text-[#58b66a] transition-all duration-200"
+                          >
+                            {link.name}
+                          </Link>
+                        )}
                       </motion.div>
                     </li>
                   ))}
@@ -162,12 +183,21 @@ export default function Footer() {
               <div className="flex flex-wrap gap-4 lg:gap-6">
                 {footerConfig.legal.map((link, i) => (
                   <motion.div key={i} whileHover={{ color: "#58b66a" }}>
-                    <Link
-                      to={link.link}
-                      className="hover:text-[#58b66a] transition-colors"
-                    >
-                      {link.name}
-                    </Link>
+                    {link.link === "coming-soon" ? (
+                      <button
+                        onClick={openComingSoon}
+                        className="hover:text-[#58b66a] transition-colors"
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link
+                        to={link.link}
+                        className="hover:text-[#58b66a] transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </motion.div>
                 ))}
               </div>

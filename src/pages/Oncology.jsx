@@ -5,6 +5,7 @@ import { Search, X, ArrowRight, Package, Thermometer, Clipboard, Building } from
 import PageHeader from "../components/PageHeader";
 import HoverZoomImage from "../components/HoverZoomImage";
 import { staggerContainer, fadeUp, scaleIn, viewport } from "../utils/animations";
+import { useComingSoon } from "../context/ComingSoonContext";
 
 // ─── Product Data ────────────────────────────────────────────────────────────
 const products = [
@@ -105,7 +106,7 @@ const processSteps = [
 } */
 
 // Expand panel content
-function ExpandPanel({ product, onClose }) {
+function ExpandPanel({ product, onClose, openComingSoon }) {
   return (
     <motion.div
       className="absolute inset-0 z-20 bg-white flex flex-col"
@@ -185,12 +186,12 @@ function ExpandPanel({ product, onClose }) {
         </div>
 
         <div className="flex flex-col gap-2 pt-4 border-t border-gray-100">
-          <Link
-            to={`/${product.slug}`}
+          <button
+            onClick={openComingSoon}
             className="flex items-center justify-center gap-2 w-full bg-[#023274] text-white text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-[#023274]/90 transition-colors"
           >
             <ArrowRight size={13} /> Full Product Page
-          </Link>
+          </button>
           <a href="https://wa.me/919819464064" target="_blank" rel="noopener noreferrer" className="text-center text-xs text-[#023274] font-semibold hover:underline underline-offset-2 pt-1">
             Contact our sales team →
           </a>
@@ -201,6 +202,7 @@ function ExpandPanel({ product, onClose }) {
 }
 
 export default function Oncology() {
+  const { openComingSoon } = useComingSoon();
   const [activeFilter, setActiveFilter] = useState("all");
   const [query, setQuery] = useState("");
   const [expanded, setExpanded] = useState(null);
@@ -268,9 +270,12 @@ export default function Oncology() {
                 ))}
               </div>
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 380, damping: 24 }} className="inline-block">
-                <Link to={`/${featured.slug}`} className="inline-block bg-[#023274] text-white text-sm font-bold px-7 py-3 rounded-xl hover:bg-[#023274]/90 transition-colors">
+                <button 
+                  onClick={openComingSoon}
+                  className="inline-block bg-[#023274] text-white text-sm font-bold px-7 py-3 rounded-xl hover:bg-[#023274]/90 transition-colors"
+                >
                   View Full Details
-                </Link>
+                </button>
               </motion.div>
             </div>
           </motion.div>
@@ -384,7 +389,7 @@ export default function Oncology() {
                       {/* Expand panel overlaid inside the card */}
                       <AnimatePresence>
                         {expanded === product.slug && (
-                          <ExpandPanel product={product} onClose={() => setExpanded(null)} />
+                          <ExpandPanel product={product} onClose={() => setExpanded(null)} openComingSoon={openComingSoon} />
                         )}
                       </AnimatePresence>
                     </motion.div>
@@ -414,12 +419,16 @@ export default function Oncology() {
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className="bg-white border border-gray-100 rounded-2xl p-7 text-center relative"
-                whileHover={{ y: -6, boxShadow: "0 12px 40px rgba(2,50,116,0.10)" }}
-                transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="group bg-gray-50 hover:bg-white border border-gray-100 hover:border-[#023274]/20 rounded-2xl p-8 text-center relative transition-all duration-300"
+                whileHover={{ y: -6, boxShadow: "0 12px 40px rgba(2,50,116,0.12)" }}
               >
-                <div className="text-5xl font-extrabold text-[#023274]/10 leading-none mb-3">{step.num}</div>
-                <h3 className="font-bold text-gray-800 text-lg mb-2">{step.title}</h3>
+                <div 
+                  className="text-6xl font-black text-[#023274]/70 group-hover:text-[#023274]/90 transition-colors leading-none mb-4 select-none"
+                  style={{ fontFamily: "'Georgia', serif" }}
+                >
+                  {step.num}
+                </div>
+                <h3 className="font-bold text-[#023274] text-lg mb-2" style={{ fontFamily: "'Georgia', serif" }}>{step.title}</h3>
                 <p className="text-base text-gray-500 leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}

@@ -1,12 +1,48 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { DotLottie } from '@lottiefiles/dotlottie-web';
+import loadingAnimation from "../assets/Lottie/loading.json";
 
 const ComingSoonContext = createContext();
 
 /**
+ * LottieAnimation Component
+ * Handles the initialization and cleanup of the DotLottie player.
+ */
+function LottieAnimation() {
+  const canvasRef = useRef(null);
+  
+  useEffect(() => {
+    if (canvasRef.current) {
+      const dotLottie = new DotLottie({
+        autoplay: true,
+        loop: true,
+        canvas: canvasRef.current,
+        data: loadingAnimation,
+      });
+
+      return () => dotLottie.destroy();
+    }
+  }, []);
+
+  return (
+    <div className="flex justify-center mb-0">
+      <canvas 
+        ref={canvasRef} 
+        id="dotlottie-canvas" 
+        width={180}
+        height={180}
+        className="bg-transparent scale-125"
+        style={{ width: '180px', height: '180px' }}
+      />
+    </div>
+  );
+}
+
+/**
  * ComingSoonModal
- * The visual popup component, now managed within the context file for simplicity.
+ * The visual popup component, now featuring a Lottie animation.
  */
 function ComingSoonModal({ isOpen, onClose }) {
   return (
@@ -44,18 +80,7 @@ function ComingSoonModal({ isOpen, onClose }) {
               </button>
 
               <div className="text-center relative z-10">
-                <motion.div
-                  className="w-20 h-20 bg-[#023274] rounded-[24px] mx-auto mb-10 flex items-center justify-center shadow-xl shadow-[#023274]/30"
-                  initial={{ scale: 0.5, rotate: -15 }}
-                  animate={{ scale: 1, rotate: 0 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
-                >
-                  {/* Hospital Plus Sign */}
-                  <div className="relative w-10 h-10">
-                    <div className="absolute inset-0 m-auto w-full h-2.5 bg-white rounded-sm"></div>
-                    <div className="absolute inset-0 m-auto h-full w-2.5 bg-white rounded-sm"></div>
-                  </div>
-                </motion.div>
+                <LottieAnimation />
 
                 <h2 className="text-5xl lg:text-6xl font-black text-[#023274] mb-6 tracking-tighter">
                   Coming Soon

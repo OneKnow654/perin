@@ -27,7 +27,7 @@ export default function Ophthalmology() {
       <PageHeader
         accent="Ophthalmology"
         desc="Vision care and dry eye management solutions."
-        breadcrumbs={[{ label: "Ophthalmology" }]}
+        breadcrumbs={[{ label: "Products", link: "#" }, { label: "Ophthalmology" }]}
       />
 
       <section className="py-16 lg:py-24">

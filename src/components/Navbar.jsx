@@ -60,8 +60,6 @@ const itemVariants = {
   }),
 };
 
-import perinLogo from "../assets/Images/PerinLogo.jpeg";
-
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -96,14 +94,13 @@ export default function Navbar() {
         transition={{ duration: 0.3 }}
       >
         <nav className="max-w-[1400px] mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between h-20 lg:h-28">
+          <div className="flex items-center justify-between h-16 lg:h-22">
             {/* Logo */}
-            <Link to="/" className="flex-shrink-0">
+            <Link to="/" className="flex-shrink-0 relative z-10">
               <motion.img
-                src={perinLogo}
+                src={app.logo}
                 alt="Perin Healthcare"
-                className="h-14 lg:h-20 w-auto object-contain"
-                whileHover={{ scale: 1.05 }}
+                className="h-10 lg:h-14 w-auto object-contain scale-[1.0] origin-left"
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
               />
             </Link>
@@ -122,24 +119,24 @@ export default function Navbar() {
                     {item.link === "coming-soon" ? (
                       <button
                         onClick={openComingSoon}
-                        className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-sm font-medium text-primary hover:text-accent transition-colors rounded-lg hover:bg-[#F2F1ED]/60 group"
+                        className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-base font-medium text-primary hover:text-accent transition-colors rounded-lg hover:bg-[#F2F1ED]/60 group"
                       >
-                        {Icon && <Icon size={13} className="opacity-60" />}
+                        {Icon && <Icon size={14} className="opacity-60" />}
                         {item.title}
                       </button>
                     ) : (
                       <Link
                         to={item.link ?? "#"}
-                        className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-sm font-medium text-primary hover:text-accent transition-colors rounded-lg hover:bg-[#F2F1ED]/60 group"
+                        className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-base font-medium text-primary hover:text-accent transition-colors rounded-lg hover:bg-[#F2F1ED]/60 group"
                       >
-                        {Icon && <Icon size={13} className="opacity-60" />}
+                        {Icon && <Icon size={14} className="opacity-60" />}
                         {item.title}
                         {item.type === "mega" && (
                           <motion.span
                             animate={{ rotate: activeMenu === i ? 180 : 0 }}
                             transition={{ duration: 0.22, ease: "easeInOut" }}
                           >
-                            <ChevronDown size={11} className="opacity-50" />
+                            <ChevronDown size={12} className="opacity-50" />
                           </motion.span>
                         )}
                       </Link>
