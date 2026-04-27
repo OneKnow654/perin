@@ -59,7 +59,7 @@ body,
 }
 
 body {
-    font-family: 'GT Eesti Pro Display Medium', 'Sans-serif', system-ui, -apple-system, sans-serif;
+    font-family: 'GT Eesti Pro Display Bold', 'Sans-serif', system-ui, -apple-system, sans-serif;
     color: var(--color-text);
     background: #ffffff;
 }

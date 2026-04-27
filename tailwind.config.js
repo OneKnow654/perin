@@ -18,7 +18,7 @@ export default {
         "cta-bg": "#ff4d00"
       },
       fontFamily: {
-        sans: ["'Gt Eesti Pro Display'", "'sans-serif'", "system-ui", "-apple-system", "sans-serif"],
+        sans: ["'Gt Eesti Pro Display Bold'", "'sans-serif'", "system-ui", "-apple-system", "sans-serif"],
       },
       borderRadius: {
         "2xl": "1rem",

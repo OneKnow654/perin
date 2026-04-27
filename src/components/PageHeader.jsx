@@ -22,7 +22,7 @@ const item = {
  *  buttons    – [{ text, link, style: "primary"|"secondary" }]
  */
 export default function PageHeader({
-  type = "gradient",
+  type = "image",
   src,
   overlay = true,
   overlayOpacity = "bg-black/40",
@@ -68,8 +68,8 @@ export default function PageHeader({
         ) : type === "image" && src ? (
           <img src={src} alt="Banner" className="absolute inset-0 w-full h-full object-cover object-top" />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#023274] via-[#023274]/90 to-[#58b66a]/70">
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_30%,white,transparent_40%)]" />
+          <div className="absolute inset-0 bg-[#023274]">
+            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.15),transparent_60%)]" />
           </div>
         )}
 
@@ -120,7 +120,7 @@ export default function PageHeader({
                         ? "bg-white/90 text-[#023274] hover:bg-white"
                         : "text-white hover:opacity-90"
                         }`}
-                      style={btn.style !== "secondary" ? { backgroundColor: "#58b66a" } : {}}
+                      style={btn.style !== "secondary" ? { backgroundColor: "#f6f7f6ff" } : {}}
                     >
                       {btn.text}
                     </Link>

@@ -1,10 +1,13 @@
+import perinLogo from "../assets/Images/PerinLogo.jpeg";
+import footerLogo from "../assets/Images/LogoTrans.png";
+
 // ─── Site Config ───────────────────────────────────────────────────────────
 export const app = {
   site_name: "Perin Healthcare",
   site_tagline: "Building Better Tomorrow",
   site_url: "https://perinhealthcare.com",
-  logo: "/images/perin-logo.png",
-  logo_footer: "/images/perin-logo-footer.png",
+  logo: perinLogo,
+  logo_footer: footerLogo,
   meta: {
     description:
       "Delivering advanced healthcare solutions with global partnerships and patient-first innovation.",
@@ -14,8 +17,8 @@ export const app = {
     phone: "+91 9819464064",
   },
   social: [
-    { icon: "facebook", url: "#" },
-    { icon: "youtube", url: "#" },
+    { icon: "facebook", url: "coming-soon" },
+    { icon: "youtube", url: "coming-soon" },
     { icon: "linkedin", url: "https://www.linkedin.com/company/perin-heathcare/" },
     { icon: "instagram", url: "https://www.instagram.com/perinhealthcare" },
   ],
@@ -86,7 +89,7 @@ export const menu = [
       {
         heading: "Specialties",
         items: [
-          { name: "Anaesthesiology", link: "/rare-diseases" },
+          { name: "Anaesthesiology", link: "coming-soon" },
           { name: "Biosurgery", link: "coming-soon" },
         ],
       },
@@ -99,7 +102,7 @@ export const menu = [
     columns: [
       {
         heading: "Initiatives",
-        items: [{ name: "Perin Foundation", link: "#" }],
+        items: [{ name: "Perin Foundation", link: "coming-soon" }],
       },
     ],
   },
@@ -111,10 +114,10 @@ export const menu = [
       {
         heading: "Resources",
         items: [
-          { name: "News", link: "#" },
-          { name: "Conference", link: "#" },
-          { name: "Webinar", link: "#" },
-          { name: "Podcast", link: "#" },
+          { name: "News", link: "coming-soon" },
+          { name: "Conference", link: "coming-soon" },
+          { name: "Webinar", link: "coming-soon" },
+          { name: "Podcast", link: "coming-soon" },
         ],
       },
     ],
@@ -132,22 +135,22 @@ export const footerConfig = {
     Solutions: [
       { name: "Oncology", link: "/oncology" },
       { name: "Ophthalmology", link: "/ophthalmology" },
-      { name: "Biosurgery", link: "#" },
-      { name: "Rare Diseases", link: "/rare-diseases" },
+      { name: "Biosurgery", link: "coming-soon" },
+      { name: "Rare Diseases", link: "coming-soon" },
     ],
     Company: [
       { name: "We Are Perin", link: "/about" },
       { name: "Global Alliance", link: "/corza-medical" },
-      { name: "Product Portfolio", link: "/oncology" },
-      { name: "We Care", link: "#" },
-      { name: "Media", link: "#" },
+      { name: "Product Portfolio", link: "coming-soon" },
+      { name: "We Care", link: "coming-soon" },
+      { name: "Media", link: "coming-soon" },
       { name: "Join Perin", link: "/career" },
     ],
   },
   legal: [
-    { name: "Privacy Policy", link: "#" },
-    { name: "Ethics & Compliance", link: "#" },
-    { name: "Terms & Conditions", link: "#" },
+    { name: "Privacy Policy", link: "coming-soon" },
+    { name: "Ethics & Compliance", link: "coming-soon" },
+    { name: "Terms & Conditions", link: "coming-soon" }
   ],
 };
 
@@ -162,10 +165,10 @@ export const stats = [
 
 // ─── Solutions ───────────────────────────────────────────────────────────────
 export const solutions = [
-  { title: "Biosurgery", href: "/oncology", image: "src/assets/Images/Biosurgery.png", alt: "Biosurgery product" },
-  { title: "Biomedical Textiles", href: "/oncology", image: "src/assets/Images/Biomedical Textiles.png", alt: "Biomedical textiles", scale: 1.25 },
-  { title: "Ophthalmology", href: "/oncology", image: "src/assets/Images/Ophthalmology.png", alt: "Ophthalmology instruments", scale: 1.2 },
-  { title: "Wound Closure", href: "/oncology", image: "src/assets/Images/Wound Closure.png", alt: "Wound closure suture" },
+  { title: "Oncology", href: "/oncology", image: "src/assets/Images/Oncology.png", alt: "Oncology solutions", scale: 1.5 },
+  { title: "Anaesthesiology", href: "coming-soon", image: "src/assets/Images/Anaesthesiology.png", alt: "Anaesthesiology products", scale: 1.25 },
+  { title: "Ophthalmology", href: "/ophthalmology", image: "src/assets/Images/Ophthalmology.png", alt: "Ophthalmology instruments", scale: 1.5 },
+  { title: "Biosurgery", href: "coming-soon", image: "src/assets/Images/Biosurgery.png", alt: "Biosurgery portfolio" },
 ];
 
 // ─── Why Perin Tabs ───────────────────────────────────────────────────────────

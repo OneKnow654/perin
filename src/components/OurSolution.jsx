@@ -2,24 +2,49 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { solutions } from "../data/config";
 import { staggerContainer, fadeUp, viewport } from "../utils/animations";
+import { useComingSoon } from "../context/ComingSoonContext";
 
 export default function OurSolution() {
+  const { openComingSoon } = useComingSoon();
+
   return (
-    <section className="py-16 lg:py-24 bg-white min-h-[100dvh] flex flex-col justify-center" aria-labelledby="our-solutions-heading">
-      <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8">
-        <motion.h2
-          id="our-solutions-heading"
-          className="text-3xl lg:text-4xl font-bold text-[#023274] mb-10 text-left"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-        >
-          Our solutions
-        </motion.h2>
+    <section className="relative py-20 lg:py-28 bg-[#F8FAFC] overflow-hidden" aria-labelledby="our-solutions-heading">
+      {/* Background Texture */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.4]"
+        style={{ backgroundImage: 'radial-gradient(#CBD5E0 1px, transparent 1px)', backgroundSize: '40px 40px' }}
+      />
+
+      <div className="relative z-10 w-full max-w-[1300px] mx-auto px-6 lg:px-12">
+        {/* Editorial Header */}
+        <div className="mb-10 lg:mb-16">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="flex items-center gap-4 mb-6"
+          >
+            <div className="w-12 h-[2px] bg-[#3B82F6]" />
+            <span className="text-[#3B82F6] text-sm lg:text-base font-black uppercase tracking-[0.5em]">Our Solutions</span>
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="flex gap-8 items-start"
+          >
+            <div className="w-2.5 h-24 bg-[#023274] mt-3 flex-shrink-0" />
+            <h2 id="our-solutions-heading" className="text-6xl lg:text-6xl font-black text-[#023274] tracking-tighter leading-[0.95]">
+              Empowering Healthcare <br />
+              <span className="text-[#3B82F6]">through Innovation.</span>
+            </h2>
+          </motion.div>
+        </div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -29,40 +54,59 @@ export default function OurSolution() {
             <motion.article
               key={i}
               variants={fadeUp}
-              className="group flex flex-col sm:flex-row items-stretch bg-[#F5F5F5] rounded-2xl overflow-hidden min-h-[200px] shadow-sm"
+              className="group relative flex flex-col sm:flex-row items-stretch bg-white rounded-[1.5rem] overflow-hidden border border-slate-100 transition-all duration-500"
               whileHover={{
-                boxShadow: "0 8px 40px rgba(2,50,116,0.13)",
-                y: -3,
+                y: -6,
+                borderColor: "rgba(59, 130, 246, 0.2)",
+                boxShadow: "0 30px 60px -12px rgba(2, 50, 116, 0.08)"
               }}
-              transition={{ duration: 0.32, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <div className="flex flex-col justify-center p-8 lg:p-10 flex-1 min-w-0">
-                <h3 className="text-xl font-bold text-[#023274] mb-4">{item.title}</h3>
+              {/* Subtle Card Background Glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#3B82F6]/0 to-[#3B82F6]/0 group-hover:from-blue-50/50 group-hover:to-transparent transition-all duration-500" />
+
+              <div className="relative z-10 flex flex-col justify-center p-8 lg:p-10 flex-1 min-w-0">
+                <h3 className="text-xl lg:text-2xl font-black text-[#023274] mb-4 tracking-tight group-hover:text-[#3B82F6] transition-colors">
+                  {item.title}
+                </h3>
+
                 <motion.div
-                  whileHover={{ x: 4 }}
+                  whileHover={{ x: 6 }}
                   transition={{ type: "spring", stiffness: 380, damping: 24 }}
                   className="self-start"
                 >
-                  <Link
-                    to={item.href}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#4e9695] hover:opacity-80 transition-opacity"
-                  >
-                    Learn more
-                    <span className="text-base leading-none" aria-hidden="true">→</span>
-                  </Link>
+                  {item.href === "coming-soon" ? (
+                    <button
+                      onClick={openComingSoon}
+                      className="inline-flex items-center gap-3 text-sm font-black text-[#3B82F6] group/btn"
+                    >
+                      Learn more
+                      <div className="w-6 h-[1px] bg-[#3B82F6]/30 group-hover/btn:w-10 transition-all" />
+                    </button>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className="inline-flex items-center gap-3 text-sm font-black text-[#3B82F6] group/btn"
+                    >
+                      Learn more
+                      <div className="w-6 h-[1px] bg-[#3B82F6]/30 group-hover/btn:w-10 transition-all" />
+                    </Link>
+                  )}
                 </motion.div>
               </div>
 
-              <div className="relative flex sm:w-[46%] min-h-[160px] sm:min-h-0 items-end justify-end sm:justify-center p-4 sm:pl-0 overflow-hidden">
+              <div className="relative flex sm:w-[40%] min-h-[180px] sm:min-h-0 items-center justify-center p-6 overflow-hidden">
+                {/* Glow behind image on hover */}
+                <div className="absolute inset-0 bg-[#3B82F6]/0 group-hover:bg-[#3B82F6]/5 blur-3xl transition-all duration-500 rounded-full scale-50" />
+
                 <motion.img
                   src={item.image}
                   alt={item.alt}
-                  className="max-h-[220px] w-full max-w-[280px] sm:max-w-none object-contain object-right sm:object-center translate-x-1 sm:translate-x-3 md:translate-x-4 select-none pointer-events-none"
+                  className="relative z-10 max-h-[200px] w-full object-contain select-none pointer-events-none"
                   loading="lazy"
                   initial={{ scale: item.scale || 1 }}
                   animate={{ scale: item.scale || 1 }}
-                  whileHover={{ scale: (item.scale || 1) * 1.06, x: -4 }}
-                  transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  whileHover={{ scale: (item.scale || 1) * 1.08 }}
+                  transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                 />
               </div>
             </motion.article>
