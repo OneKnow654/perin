@@ -12,10 +12,10 @@ const stats = [
 ];
 
 const impacts = [
-  { Icon: Globe,        title: "Global Reach",         desc: "Partnering with world leaders to expand access to advanced therapies across India and beyond." },
-  { Icon: FlaskConical, title: "Innovation Pipeline",  desc: "Continuously developing and delivering breakthrough pharmaceutical products across multiple therapy areas." },
-  { Icon: Users,        title: "Patient-Centric",      desc: "Every product and partnership decision starts with the patient outcome in mind." },
-  { Icon: Handshake,    title: "Strategic Alliances",  desc: "Building long-term relationships with global pharma companies to bring world-class care to Indian patients." },
+  { Icon: Globe, title: "Global Reach", desc: "Partnering with world leaders to expand access to advanced therapies across India and beyond." },
+  { Icon: FlaskConical, title: "Innovation Pipeline", desc: "Continuously developing and delivering breakthrough pharmaceutical products across multiple therapy areas." },
+  { Icon: Users, title: "Patient-Centric", desc: "Every product and partnership decision starts with the patient outcome in mind." },
+  { Icon: Handshake, title: "Strategic Alliances", desc: "Building long-term relationships with global pharma companies to bring world-class care to Indian patients." },
 ];
 
 export default function OurImpact() {

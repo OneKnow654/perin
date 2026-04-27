@@ -16,8 +16,7 @@ export default function Footer() {
     <div className="min-h-[92dvh] flex flex-col">
       {/* CTA Section */}
       <motion.section
-        className="py-16 lg:py-20 text-center flex-1 flex flex-col justify-center"
-        style={{ backgroundColor: "#4e9695" }}
+        className="py-16 lg:py-20 text-center flex-1 flex flex-col justify-center bg-primary-light"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -50,7 +49,7 @@ export default function Footer() {
           >
             <Link
               to={app.cta.button_link}
-              className="inline-block bg-white text-[#0F3D3E] px-8 py-3 rounded-full font-semibold hover:bg-[#0F3D3E] hover:text-white transition-all duration-300"
+              className="inline-block bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
             >
               {app.cta.button_text}
             </Link>
@@ -59,7 +58,7 @@ export default function Footer() {
       </motion.section>
 
       {/* Footer */}
-      <footer className="text-white pt-12 lg:pt-16 pb-6" style={{ backgroundColor: "#123134" }}>
+      <footer className="text-white pt-12 lg:pt-16 pb-6 bg-primary-dark">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8"
@@ -92,7 +91,7 @@ export default function Footer() {
                       href={s.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white/80 hover:border-[#58b66a] hover:text-[#58b66a] transition-all duration-300 text-sm"
+                      className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white/80 hover:border-accent hover:text-accent transition-all duration-300 text-sm"
                       whileHover={{ scale: 1.12, y: -2 }}
                       whileTap={{ scale: 0.92 }}
                       transition={{ type: "spring", stiffness: 400, damping: 22 }}
@@ -116,7 +115,7 @@ export default function Footer() {
                       <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 380, damping: 24 }}>
                         <Link
                           to={link.link}
-                          className="text-white/70 text-sm hover:text-[#58b66a] transition-all duration-200"
+                          className="text-white/70 text-sm hover:text-accent transition-all duration-200"
                         >
                           {link.name}
                         </Link>
@@ -134,19 +133,19 @@ export default function Footer() {
               </h5>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <Mail size={15} className="text-[##002953] mt-0.5 shrink-0" />
+                  <Mail size={15} className="text-accent mt-0.5 shrink-0" />
                   <a
                     href={`mailto:${app.contact.email}`}
-                    className="text-white/70 text-sm hover:text-[#58b66a] transition-colors"
+                    className="text-white/70 text-sm hover:text-accent transition-colors"
                   >
                     {app.contact.email}
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Phone size={15} className="text-[#58b66a] mt-0.5 shrink-0" />
+                  <Phone size={15} className="text-accent mt-0.5 shrink-0" />
                   <a
                     href={`tel:${app.contact.phone.replace(/\s/g, "")}`}
-                    className="text-white/70 text-sm hover:text-[#58b66a] transition-colors"
+                    className="text-white/70 text-sm hover:text-accent transition-colors"
                   >
                     {app.contact.phone}
                   </a>
@@ -161,10 +160,10 @@ export default function Footer() {
               <p>{app.copyright}</p>
               <div className="flex flex-wrap gap-4 lg:gap-6">
                 {footerConfig.legal.map((link, i) => (
-                  <motion.div key={i} whileHover={{ color: "#58b66a" }}>
+                  <motion.div key={i} whileHover={{ color: "var(--color-accent)" }}>
                     <Link
                       to={link.link}
-                      className="hover:text-[#58b66a] transition-colors"
+                      className="hover:text-accent transition-colors"
                     >
                       {link.name}
                     </Link>

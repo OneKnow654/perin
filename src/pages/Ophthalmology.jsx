@@ -13,9 +13,9 @@ const tabs = [
       note: "Supplied: 2 sterile inserts per package; 10 packages per box. Total of 20 inserts.",
     },
   },
-  { label: "Flowable Plugs",   content: { title: "Flowable Plugs",   subtitle: "Coming soon", body: "Flowable plug products — content coming soon.", note: "" } },
-  { label: "Long-Term Plugs",  content: { title: "Long-Term Plugs",  subtitle: "Coming soon", body: "Long-term plug products — content coming soon.", note: "" } },
-  { label: "Gauge System",     content: { title: "Gauge System",     subtitle: "Coming soon", body: "Gauge system products — content coming soon.", note: "" } },
+  { label: "Flowable Plugs", content: { title: "Flowable Plugs", subtitle: "Coming soon", body: "Flowable plug products — content coming soon.", note: "" } },
+  { label: "Long-Term Plugs", content: { title: "Long-Term Plugs", subtitle: "Coming soon", body: "Long-term plug products — content coming soon.", note: "" } },
+  { label: "Gauge System", content: { title: "Gauge System", subtitle: "Coming soon", body: "Gauge system products — content coming soon.", note: "" } },
 ];
 
 export default function Ophthalmology() {
@@ -56,11 +56,10 @@ export default function Ophthalmology() {
               <motion.button
                 key={i}
                 onClick={() => setActive(i)}
-                className={`px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 ${
-                  active === i
+                className={`px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 ${active === i
                     ? "text-white shadow-md"
                     : "bg-[#F2F1ED] text-[#023274] hover:bg-[#023274]/10"
-                }`}
+                  }`}
                 style={active === i ? { backgroundColor: "#023274" } : {}}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}

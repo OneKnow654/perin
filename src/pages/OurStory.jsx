@@ -5,10 +5,10 @@ import ContentWithImage from "../components/ContentWithImage";
 import { staggerContainer, fadeUp, viewport } from "../utils/animations";
 
 const values = [
-  { Icon: Heart,    title: "Patient First",  desc: "Every decision we make starts with the patient in mind." },
-  { Icon: Lightbulb, title: "Innovation",    desc: "Constantly pushing boundaries to develop better solutions." },
-  { Icon: Shield,   title: "Integrity",      desc: "Operating with transparency and ethical standards globally." },
-  { Icon: Users,    title: "Collaboration",  desc: "Building partnerships that create lasting impact." },
+  { Icon: Heart, title: "Patient First", desc: "Every decision we make starts with the patient in mind." },
+  { Icon: Lightbulb, title: "Innovation", desc: "Constantly pushing boundaries to develop better solutions." },
+  { Icon: Shield, title: "Integrity", desc: "Operating with transparency and ethical standards globally." },
+  { Icon: Users, title: "Collaboration", desc: "Building partnerships that create lasting impact." },
 ];
 
 export default function OurStory() {

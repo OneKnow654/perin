@@ -2,40 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── CSS Variables (mirrors theme.php) ─────────────────── */
-/*:root {
-  --color-primary:    #023274;
-  --color-secondary:  #F2F1ED;
-  --color-accent:     #58b66a;
-  --color-dark:       #0F3D3E;
-  --color-text:       #454040;
-  --color-text-light: #8F8F8F;
-  --color-divider:    #DFE1DE;
-  --color-footer-bg:  #123134;
-  --color-cta-bg:     #4e9695;
-}*/
+/* ── Fonts ──────────────────────────────────────────────── */
+@font-face {
+    font-family: 'GT Eesti Pro Display';
+    src: url('./assets/fonts/gteestiprodisplay_light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
 
-:root {
-    --color-primary: #002d72;
-    /* Deep Blue - headers, branding */
-    --color-secondary: #ffffff;
-    /* Pure White - backgrounds */
-    --color-accent: #555555;
-    /* Vermilion - CTA, highlights */
-    --color-dark: #002d72;
-    /* Deep Blue (alt usage for strong sections) */
-    --color-text: #002d72;
-    /* Primary text */
-    --color-text-light: #888b8d;
-    /* Cool Gray - secondary text */
-    --color-divider: #d1dddf;
-    /* Light Blue - subtle dividers */
-    --color-footer-bg: #002d72;
-    /* Footer background */
-    --color-cta-bg: #ff4d00;
-    /* CTA buttons */
-    --color-subtab-bg: #d1dddf;
-    /* Light Blue - subtabs */
+@font-face {
+    font-family: 'GT Eesti Pro Display';
+    src: url('./assets/fonts/gteestiprodisplay_regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT Eesti Pro Display';
+    src: url('./assets/fonts/gteestiprodisplay_medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT Eesti Pro Display';
+    src: url('./assets/fonts/gteestiprodisplay_bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT Eesti Pro Display';
+    src: url('./assets/fonts/gteestiprodisplay_ultrabold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
 }
 
 /* ── Base ───────────────────────────────────────────────── */
@@ -45,26 +50,41 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body,
-#root {
-    height: 100%;
-}
-
-html,
-body,
-#root {
-    background-color: var(--color-secondary);
-    color: var(--color-text);
-}
-
 body {
-    font-family: 'GT Eesti Pro Display Medium', 'Sans-serif', system-ui, -apple-system, sans-serif;
-    color: var(--color-text);
-    background: #ffffff;
+    @apply font-sans text-step-0 text-primary bg-secondary;
+    margin: 0;
 }
 
-/* ── Scrollbar (subtle, WebKit) ─────────────────────────── */
+#root {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Component Primitives ────────────────────────────── */
+@layer components {
+    .container-fluid {
+        @apply w-full max-w-layout mx-auto px-fluid-sm;
+    }
+
+    .container-wide {
+        @apply w-full max-w-layout-wide mx-auto px-fluid-sm;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-bold bg-primary text-white transition-all duration-300 hover:bg-primary-light active:scale-95 shadow-lg shadow-primary/20;
+    }
+
+    .btn-accent {
+        @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-bold bg-accent text-white transition-all duration-300 hover:bg-accent-light active:scale-95 shadow-lg shadow-accent/20;
+    }
+
+    .heading-1 { @apply text-step-4 font-bold tracking-tight leading-tight text-primary; }
+    .heading-2 { @apply text-step-3 font-bold tracking-tight leading-tight text-primary; }
+    .heading-3 { @apply text-step-2 font-medium tracking-tight text-primary; }
+}
+
+/* ── Scrollbar ────────────────────────────────────────── */
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -74,33 +94,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-divider);
-    border-radius: 3px;
+    @apply bg-surface-divider rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-text-light);
+    @apply bg-text-muted;
 }
 
-/* ── Focus Accessibility ────────────────────────────────── */
-a:focus-visible,
-button:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
-    border-radius: 4px;
-}
-
-/* ── Gradient Text Utility ──────────────────────────────── */
-.gradient-text {
-    background: linear-gradient(135deg,
-            var(--color-accent),
-            var(--color-primary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* ── Smooth image loading ───────────────────────────────── */
+/* ── Smooth Image Loading ───────────────────────────────── */
 img {
     transition: opacity 0.3s ease;
 }

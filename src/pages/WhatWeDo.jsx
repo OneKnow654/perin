@@ -29,7 +29,7 @@ export default function WhatWeDo() {
           "Globally trusted, our portfolio delivers quality, reliability, and innovative healthcare solutions.",
         ]}
         reverse
-        bgClass="bg-[#F2F1ED]/50"
+        bgClass="bg-surface-light/50"
       />
     </main>
   );

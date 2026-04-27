@@ -5,7 +5,7 @@ import { staggerContainer, fadeUp, viewport } from "../utils/animations";
 function StatItem({ raw, label, delay = 0 }) {
   // Extract numeric part from strings like "50+", "10M+", "04"
   const numeric = parseInt(raw.replace(/\D/g, ""), 10) || 0;
-  const suffix  = raw.replace(/[0-9]/g, ""); // "+", "M+", etc.
+  const suffix = raw.replace(/[0-9]/g, ""); // "+", "M+", etc.
   const { value, ref } = useCounter(numeric, 800, delay);
 
   return (

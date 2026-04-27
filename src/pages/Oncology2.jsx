@@ -98,8 +98,8 @@ const processSteps = [
   return (
     <div className="bg-white rounded-xl shadow-lg w-24 h-32 flex flex-col items-center justify-center gap-2 text-center px-2">
       <span className="text-xs font-bold tracking-widest uppercase text-gray-300">PERIN</span>
-      <Package size={32} className="text-[#023274]" />
-      <span className="text-xs font-bold text-[#023274] leading-tight">{brand}</span>
+      <Package size={32} className="text-primary" />
+      <span className="text-xs font-bold text-primary leading-tight">{brand}</span>
     </div>
   );
 } */
@@ -131,7 +131,7 @@ function ExpandPanel({ product, onClose }) {
           <span className="text-white/60 font-bold tracking-widest" style={{ fontSize: 9 }}>PERIN</span>
         </div>
         <div>
-          <span className="text-xs font-bold tracking-widest uppercase text-[#58b66a]">{product.label}</span>
+          <span className="text-xs font-bold tracking-widest uppercase text-accent">{product.label}</span>
           <h3 className="text-lg font-bold text-white leading-tight">{product.name}</h3>
           <p className="text-white/55 text-xs italic">{product.generic}</p>
         </div>
@@ -139,7 +139,7 @@ function ExpandPanel({ product, onClose }) {
 
       {/* Body */}
       <div className="p-5 overflow-y-auto flex-1">
-        <p className="text-xs font-bold tracking-widest uppercase text-[#023274] mb-2">About</p>
+        <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">About</p>
         <p className="text-gray-600 text-sm leading-relaxed mb-5">{product.desc}</p>
 
         {[
@@ -147,7 +147,7 @@ function ExpandPanel({ product, onClose }) {
           { label: "Mechanism of Action", value: product.mechanism },
         ].map(({ label, value }) => (
           <div key={label} className="mb-4">
-            <p className="text-xs font-bold tracking-widest uppercase text-[#023274] mb-2">{label}</p>
+            <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">{label}</p>
             <p className="text-sm text-gray-600 leading-relaxed bg-gray-50 rounded-xl p-3">{value}</p>
           </div>
         ))}
@@ -161,12 +161,12 @@ function ExpandPanel({ product, onClose }) {
           ))}
         </div>
 
-        <p className="text-xs font-bold tracking-widest uppercase text-[#023274] mb-2">Specifications</p>
+        <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">Specifications</p>
         <div className="grid grid-cols-2 gap-2 mb-5">
           {product.specs.map((spec, i) => (
             <div key={i} className="bg-gray-50 rounded-xl p-3 flex items-start gap-2">
-              <div className="w-7 h-7 rounded-lg bg-[#023274]/10 flex items-center justify-center flex-shrink-0">
-                <Package size={12} className="text-[#023274]" />
+              <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Package size={12} className="text-primary" />
               </div>
               <div>
                 <p className="text-xs text-gray-400">{spec.label}</p>
@@ -178,7 +178,7 @@ function ExpandPanel({ product, onClose }) {
 
         <div className="flex flex-wrap gap-2 mb-5">
           {product.tags.map((tag, i) => (
-            <span key={i} className="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#023274]/5 text-[#023274] border border-[#023274]/10">
+            <span key={i} className="text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/5 text-primary border border-primary/10">
               {tag}
             </span>
           ))}
@@ -187,11 +187,11 @@ function ExpandPanel({ product, onClose }) {
         <div className="flex flex-col gap-2 pt-4 border-t border-gray-100">
           <Link
             to={`/${product.slug}`}
-            className="flex items-center justify-center gap-2 w-full bg-[#023274] text-white text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-[#023274]/90 transition-colors"
+            className="flex items-center justify-center gap-2 w-full bg-primary text-white text-sm font-semibold px-4 py-2.5 rounded-xl hover:bg-primary/90 transition-colors"
           >
             <ArrowRight size={13} /> Full Product Page
           </Link>
-          <a href="https://wa.me/919819464064" target="_blank" rel="noopener noreferrer" className="text-center text-xs text-[#023274] font-semibold hover:underline underline-offset-2 pt-1">
+          <a href="https://wa.me/919819464064" target="_blank" rel="noopener noreferrer" className="text-center text-xs text-primary font-semibold hover:underline underline-offset-2 pt-1">
             Contact our sales team →
           </a>
         </div>
@@ -231,7 +231,7 @@ export default function Oncology() {
       {/* Featured Product */}
       <section className="py-16 px-6 lg:px-16 xl:px-24">
         <div className="max-w-screen-2xl mx-auto">
-          <p className="text-xs font-bold tracking-widest uppercase text-[#023274] mb-2">Featured Product</p>
+          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">Featured Product</p>
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white border border-gray-100 rounded-2xl p-8 lg:p-10"
             variants={fadeUp}
@@ -241,8 +241,8 @@ export default function Oncology() {
             whileHover={{ boxShadow: "0 8px 40px rgba(2,50,116,0.12)" }}
             transition={{ duration: 0.3 }}
           >
-            <div className="bg-[#023274]/5 rounded-2xl h-[500px] flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-[#023274] to-[#58b66a]" />
+            <div className="bg-primary/5 rounded-2xl h-[500px] flex items-center justify-center relative overflow-hidden">
+              <div className="absolute inset-0 opacity-5 bg-primary" />
               {featured.image ? (
                 <HoverZoomImage src={featured.image} alt={featured.name} className="w-full h-full relative z-10" baseScale={featured.baseScale} zoomScale={featured.zoomScale} />
               ) : (
@@ -250,15 +250,15 @@ export default function Oncology() {
               )}
             </div>
             <div>
-              <p className="text-xs font-bold tracking-widest uppercase text-[#58b66a] mb-1">{featured.category}</p>
+              <p className="text-xs font-bold tracking-widest uppercase text-accent mb-1">{featured.category}</p>
               <h2 className="text-3xl font-bold text-gray-900 tracking-tight mb-1">{featured.name}</h2>
               <p className="text-sm italic text-gray-400 mb-4">{featured.generic}</p>
               <p className="text-gray-600 leading-relaxed mb-6">{featured.desc}</p>
               <div className="grid grid-cols-2 gap-3 mb-6">
                 {featured.specs.map((s, i) => (
                   <div key={i} className="bg-gray-50 rounded-xl p-3 flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#023274]/10 flex items-center justify-center flex-shrink-0">
-                      <Package size={13} className="text-[#023274]" />
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Package size={13} className="text-primary" />
                     </div>
                     <div>
                       <strong className="block text-xs font-semibold text-gray-800">{s.label}</strong>
@@ -268,7 +268,7 @@ export default function Oncology() {
                 ))}
               </div>
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} transition={{ type: "spring", stiffness: 380, damping: 24 }} className="inline-block">
-                <Link to={`/${featured.slug}`} className="inline-block bg-[#023274] text-white text-sm font-bold px-7 py-3 rounded-xl hover:bg-[#023274]/90 transition-colors">
+                <Link to={`/${featured.slug}`} className="inline-block bg-primary text-white text-sm font-bold px-7 py-3 rounded-xl hover:bg-primary/90 transition-colors">
                   View Full Details
                 </Link>
               </motion.div>
@@ -280,7 +280,7 @@ export default function Oncology() {
       {/* Catalog */}
       <section className="py-0 pb-16 px-6 lg:px-16 xl:px-24">
         <div className="max-w-screen-2xl mx-auto">
-          <p className="text-xs font-bold tracking-widest uppercase text-[#023274] mb-1">Browse Products</p>
+          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-1">Browse Products</p>
           <h2 className="text-3xl font-bold text-gray-900 tracking-tight mb-1">Product Catalog</h2>
           <p className="text-gray-500 text-sm mb-8">Filter by therapeutic area or search by product name.</p>
 
@@ -292,8 +292,8 @@ export default function Oncology() {
                   key={tab.key}
                   onClick={() => { setActiveFilter(tab.key); setExpanded(null); }}
                   className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${activeFilter === tab.key
-                    ? "bg-[#023274] text-white border-[#023274]"
-                    : "border-gray-200 bg-white text-gray-500 hover:border-[#023274] hover:text-[#023274]"
+                    ? "bg-primary text-white border-primary"
+                    : "border-gray-200 bg-white text-gray-500 hover:border-primary hover:text-primary"
                     }`}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -301,7 +301,7 @@ export default function Oncology() {
                 </motion.button>
               ))}
             </div>
-            <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2 focus-within:border-[#023274] transition-colors">
+            <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2 focus-within:border-primary transition-colors">
               <Search size={16} className="text-gray-400 flex-shrink-0" />
               <input
                 type="text"
@@ -318,7 +318,7 @@ export default function Oncology() {
             <div className="text-center py-20">
               <Search size={40} className="text-gray-200 mx-auto mb-4" />
               <p className="text-gray-400 font-medium">No products match your search.</p>
-              <button onClick={() => { setQuery(""); setActiveFilter("all"); }} className="mt-4 text-sm text-[#023274] font-semibold underline underline-offset-2">
+              <button onClick={() => { setQuery(""); setActiveFilter("all"); }} className="mt-4 text-sm text-primary font-semibold underline underline-offset-2">
                 Clear filters
               </button>
             </div>
@@ -361,8 +361,8 @@ export default function Oncology() {
                               className="flex flex-col lg:flex-row h-full"
                             >
                               {/* Left Side: Image */}
-                              <div className="lg:w-2/5 bg-[#023274]/5 flex items-center justify-center p-8 relative overflow-hidden shrink-0">
-                                <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-[#023274] to-[#58b66a]" />
+                              <div className="lg:w-2/5 bg-primary/5 flex items-center justify-center p-8 relative overflow-hidden shrink-0">
+                                <div className="absolute inset-0 opacity-5 bg-primary" />
                                 {product.image ? (
                                   <HoverZoomImage 
                                     src={product.image} 
@@ -372,7 +372,7 @@ export default function Oncology() {
                                     zoomScale={product.zoomScale || 1.4} 
                                   />
                                 ) : (
-                                  <div className="text-[#023274] font-bold">Image Not Available</div>
+                                  <div className="text-primary font-bold">Image Not Available</div>
                                 )}
                               </div>
 
@@ -380,7 +380,7 @@ export default function Oncology() {
                               <div className="lg:w-3/5 flex flex-col h-full min-h-0">
                                 {/* Header (Fixed) */}
                                 <div className="p-2 lg:p-3 border-b border-gray-50 flex items-center justify-between shrink-0">
-                                  <span className="text-[10px] lg:text-xs font-bold tracking-widest uppercase text-[#58b66a] px-2 py-0.5 bg-[#58b66a]/10 rounded-full">
+                                  <span className="text-[10px] lg:text-xs font-bold tracking-widest uppercase text-accent px-2 py-0.5 bg-accent/10 rounded-full">
                                     {product.label}
                                   </span>
                                   <button 
@@ -393,7 +393,7 @@ export default function Oncology() {
 
                                 {/* Body (Scrollable) */}
                                 <div className="p-6 lg:p-8 overflow-y-auto flex-1 custom-scrollbar">
-                                  <h2 className="text-4xl font-bold text-[#023274] mb-2 tracking-tight">
+                                  <h2 className="text-4xl font-bold text-primary mb-2 tracking-tight">
                                     {product.brand}
                                   </h2>
                                   <h3 className="text-2xl font-bold text-gray-800 mb-2">
@@ -409,7 +409,7 @@ export default function Oncology() {
 
                                   <div className="flex flex-wrap gap-3 mb-8">
                                     {product.tags.map((tag, ti) => (
-                                      <span key={ti} className="text-xs font-bold px-4 py-2 bg-[#023274]/5 text-[#023274] rounded-full border border-[#023274]/10 uppercase tracking-wider">
+                                      <span key={ti} className="text-xs font-bold px-4 py-2 bg-primary/5 text-primary rounded-full border border-primary/10 uppercase tracking-wider">
                                         {tag}
                                       </span>
                                     ))}
@@ -417,11 +417,11 @@ export default function Oncology() {
 
                                   <div className="space-y-8 mb-10">
                                     <div>
-                                      <p className="text-xs font-bold uppercase tracking-widest text-[#023274] mb-3">Therapeutic Indications</p>
+                                      <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">Therapeutic Indications</p>
                                       <p className="text-base text-gray-600 bg-gray-50 p-5 rounded-2xl leading-relaxed">{product.indications}</p>
                                     </div>
                                     <div>
-                                      <p className="text-xs font-bold uppercase tracking-widest text-[#023274] mb-3">Mechanism of Action</p>
+                                      <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">Mechanism of Action</p>
                                       <p className="text-base text-gray-600 bg-gray-50 p-5 rounded-2xl leading-relaxed">{product.mechanism}</p>
                                     </div>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -440,7 +440,7 @@ export default function Oncology() {
                                     {product.specs.map((spec, si) => (
                                       <div key={si} className="bg-gray-50 p-5 rounded-2xl flex items-center gap-4">
                                         <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center shrink-0">
-                                          <Package size={20} className="text-[#023274]" />
+                                          <Package size={20} className="text-primary" />
                                         </div>
                                         <div>
                                           <p className="text-xs text-gray-400 uppercase tracking-widest">{spec.label}</p>
@@ -456,7 +456,7 @@ export default function Oncology() {
                                   <div className="flex flex-row gap-3">
                                     <Link
                                       to={`/${product.slug}`}
-                                      className="flex-1 bg-[#023274] text-white text-center py-3 rounded-xl text-sm font-bold hover:bg-[#023274]/90 transition-colors shadow-lg shadow-[#023274]/20"
+                                      className="flex-1 bg-primary text-white text-center py-3 rounded-xl text-sm font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
                                     >
                                       Full Specs
                                     </Link>
@@ -464,7 +464,7 @@ export default function Oncology() {
                                       href="https://wa.me/919819464064" 
                                       target="_blank" 
                                       rel="noopener noreferrer"
-                                      className="flex-1 border-2 border-[#023274] text-[#023274] text-center py-3 rounded-xl text-sm font-bold hover:bg-white transition-colors"
+                                      className="flex-1 border-2 border-primary text-primary text-center py-3 rounded-xl text-sm font-bold hover:bg-white transition-colors"
                                     >
                                       Order Inquiry
                                     </a>
@@ -482,8 +482,8 @@ export default function Oncology() {
                               layout
                               className="relative flex flex-col items-center p-4"
                             >
-                              <div className="relative bg-[#023274]/5 rounded-2xl overflow-hidden flex items-center justify-center shrink-0 w-full aspect-[4/3]">
-                                <div className="absolute inset-0 opacity-5 bg-gradient-to-br from-[#023274] to-[#58b66a]" />
+                              <div className="relative bg-primary/5 rounded-2xl overflow-hidden flex items-center justify-center shrink-0 w-full aspect-[4/3]">
+                                <div className="absolute inset-0 opacity-5 bg-primary" />
                                 {product.image ? (
                                   <HoverZoomImage 
                                     src={product.image} 
@@ -493,7 +493,7 @@ export default function Oncology() {
                                     zoomScale={product.zoomScale || 1.4} 
                                   />
                                 ) : (
-                                  <div className="text-[#023274] font-bold">Image Not Available</div>
+                                  <div className="text-primary font-bold">Image Not Available</div>
                                 )}
 
                                 {/* View Details Button Overlay */}
@@ -502,7 +502,7 @@ export default function Oncology() {
                                 >
                                   <button
                                     onClick={() => setExpanded(product.slug)}
-                                    className="w-full bg-[#023274] text-white py-3 rounded-xl text-sm font-bold shadow-xl shadow-[#023274]/20 hover:bg-[#023274]/90 transition-colors"
+                                    className="w-full bg-primary text-white py-3 rounded-xl text-sm font-bold shadow-xl shadow-primary/20 hover:bg-primary/90 transition-colors"
                                   >
                                     View Details
                                   </button>
@@ -525,7 +525,7 @@ export default function Oncology() {
       <section className="py-16 px-6 lg:px-16 xl:px-24 border-t border-gray-100">
         <div className="max-w-screen-2xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold tracking-widest uppercase text-[#023274] mb-2">How It Works</p>
+            <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">How It Works</p>
             <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Product Information &amp; Order Process</h2>
           </div>
           <motion.div
@@ -543,7 +543,7 @@ export default function Oncology() {
                 whileHover={{ y: -6, boxShadow: "0 12px 40px rgba(2,50,116,0.10)" }}
                 transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <div className="text-5xl font-extrabold text-[#023274]/10 leading-none mb-3">{step.num}</div>
+                <div className="text-5xl font-extrabold text-primary/10 leading-none mb-3">{step.num}</div>
                 <h3 className="font-bold text-gray-800 text-lg mb-2">{step.title}</h3>
                 <p className="text-base text-gray-500 leading-relaxed">{step.desc}</p>
               </motion.div>

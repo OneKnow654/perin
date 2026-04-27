@@ -102,7 +102,7 @@ export default function Navbar() {
               <motion.img
                 src={perinLogo}
                 alt="Perin Healthcare"
-                className="h-14 lg:h-20 w-auto object-contain"
+                className="h-16 lg:h-24 w-auto object-contain"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
               />
@@ -122,7 +122,7 @@ export default function Navbar() {
                     {item.link === "coming-soon" ? (
                       <button
                         onClick={openComingSoon}
-                        className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-sm font-medium text-primary hover:text-accent transition-colors rounded-lg hover:bg-[#F2F1ED]/60 group"
+                        className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-lg font-medium text-primary hover:text-accent transition-colors rounded-lg hover:bg-surface-light group"
                       >
                         {Icon && <Icon size={13} className="opacity-60" />}
                         {item.title}
@@ -130,7 +130,7 @@ export default function Navbar() {
                     ) : (
                       <Link
                         to={item.link ?? "#"}
-                        className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-sm font-medium text-primary hover:text-accent transition-colors rounded-lg hover:bg-[#F2F1ED]/60 group"
+                        className="flex items-center gap-1.5 px-3 xl:px-4 py-2 text-lg font-medium text-primary hover:text-accent transition-colors rounded-lg hover:bg-surface-light group"
                       >
                         {Icon && <Icon size={13} className="opacity-60" />}
                         {item.title}
@@ -158,7 +158,7 @@ export default function Navbar() {
               >
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors"
                 >
                   Get In Touch <ArrowRight size={13} />
                 </Link>
@@ -183,7 +183,7 @@ export default function Navbar() {
               <AnimatePresence key={i}>
                 {activeMenu === i && (
                   <motion.div
-                    className="absolute left-0 w-full bg-[#0F3D3E] shadow-2xl z-40"
+                    className="absolute left-0 w-full bg-primary shadow-2xl z-40"
                     variants={megaVariants}
                     initial="hidden"
                     animate="visible"
@@ -191,7 +191,7 @@ export default function Navbar() {
                     onMouseEnter={() => openMenu(i)}
                     onMouseLeave={closeMenu}
                   >
-                    <div className="max-w-[1400px] mx-auto px-8 py-8">
+                    <div className="max-w-[1400px] mx-auto px-8 py-8 pointer-events-auto">
                       <div className="w-full flex justify-center">
                         <div
                           className="grid gap-x-12 gap-y-8 px-6 max-w-5xl"
@@ -222,14 +222,14 @@ export default function Navbar() {
                                           setActiveMenu(null);
                                           openComingSoon();
                                         }}
-                                        className="text-white hover:text-[#58b66a] transition-colors text-[15px] font-medium block w-full text-left"
+                                        className="text-white hover:text-accent transition-colors text-[15px] font-medium block w-full text-left"
                                       >
                                         {sub.name}
                                       </button>
                                     ) : (
                                       <Link
                                         to={sub.link}
-                                        className="text-white hover:text-[#58b66a] transition-colors text-[15px] font-medium"
+                                        className="text-white hover:text-accent transition-colors text-[15px] font-medium"
                                       >
                                         {sub.name}
                                       </Link>

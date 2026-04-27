@@ -5,7 +5,7 @@ export default function DotGrid({
   dotSize = 6,
   gap = 25,
   baseColor = '#e5e7eb',
-  activeColor = '#6366f1',
+  activeColor = '#005EB8',
   proximity = 100,
 }) {
   const canvasRef = useRef(null);

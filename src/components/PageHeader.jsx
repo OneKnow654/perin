@@ -39,18 +39,18 @@ export default function PageHeader({
       {breadcrumbs.length > 0 && (
         <div className="pl-3 mb-3">
           <nav className="text-sm flex flex-wrap items-center gap-1">
-            <Link to="/" className="text-[#023274]/60 hover:text-[#023274] transition-colors">
+            <Link to="/" className="text-primary/60 hover:text-primary transition-colors">
               Home
             </Link>
             {breadcrumbs.map((crumb, i) => (
               <span key={i} className="flex items-center gap-1">
-                <span className="text-[#023274]/30 mx-1">/</span>
+                <span className="text-primary/30 mx-1">/</span>
                 {crumb.link && i !== breadcrumbs.length - 1 ? (
-                  <Link to={crumb.link} className="text-[#023274]/60 hover:text-[#023274] transition-colors">
+                  <Link to={crumb.link} className="text-primary/60 hover:text-primary transition-colors">
                     {crumb.label}
                   </Link>
                 ) : (
-                  <span className="text-[#58b66a] font-medium">{crumb.label}</span>
+                  <span className="text-accent font-medium">{crumb.label}</span>
                 )}
               </span>
             ))}
@@ -68,7 +68,7 @@ export default function PageHeader({
         ) : type === "image" && src ? (
           <img src={src} alt="Banner" className="absolute inset-0 w-full h-full object-cover object-top" />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#023274] via-[#023274]/90 to-[#58b66a]/70">
+          <div className="absolute inset-0 bg-primary">
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_30%,white,transparent_40%)]" />
           </div>
         )}
@@ -117,10 +117,9 @@ export default function PageHeader({
                     <Link
                       to={btn.link}
                       className={`block px-7 py-3 rounded-full font-semibold transition-colors text-center text-sm lg:text-base ${btn.style === "secondary"
-                        ? "bg-white/90 text-[#023274] hover:bg-white"
-                        : "text-white hover:opacity-90"
+                        ? "bg-white/90 text-primary hover:bg-white"
+                        : "bg-accent text-white hover:opacity-90"
                         }`}
-                      style={btn.style !== "secondary" ? { backgroundColor: "#58b66a" } : {}}
                     >
                       {btn.text}
                     </Link>
